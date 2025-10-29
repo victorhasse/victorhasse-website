@@ -3,38 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor Hasse's Website</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <title>Design Projects</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../favicon.png" type="image/png">
 </head>
 <body>
     <div id="header"></div>
-        
-    <h1 style="text-align: center;">Welcome to Victor Hasse's Website!</h1>
+    <h1>Design Projects</h1>
     
-    <hr>
-    
-    <h2 style="text-align: center;"><img src="./assets/images/hasse_lo-fi.gif" height="500" alt="Victor's Ilustration"></h2>
-
-    <div id="footer"></div>
+</p>
+<div id="footer"></div>
 
     <script>
   // Carrega o header
-  fetch("./includes/header.html")
+  fetch("../includes/header.html")
     .then(response => response.text())
     .then(data => {
       document.getElementById("header").innerHTML = data;
 
       // Recarrega o script do tema, se necessário
       const themeScript = document.createElement("script");
-      themeScript.src = "./assets/js/script.js";
+      themeScript.src = "../assets/js/script.js";
       document.body.appendChild(themeScript);
     });
 </script>
 
 <script>
-  // Carrega o footer 
-  fetch("./includes/footer.html")
+  // Carrega o footer (se ainda não estiver)
+  fetch("../includes/footer.html")
     .then(response => response.text())
     .then(data => {
       document.getElementById("footer").innerHTML = data;

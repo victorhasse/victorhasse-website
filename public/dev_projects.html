@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" href="../favicon.png" type="image/png">
+</head>
+<body>
+    <div id="header"></div>
+        <h1 style="text-align: center;">Welcome to Victor Hasse's Portfolio!</h1>
+    <hr>
+            <h3 style="text-align: center;">Bad Turtles / Labirinto</h3>
+            <h4 style="text-align: center;"><img src="../assets/images/badturtles.png" height="350" alt="bad turtles screenshot gameplay"/></h4>
+            <p>
+            A fun and challenging maze game where the player navigate through the level filled with obstacles and enemies. Built using Godot language.<br>
+            You can see more about clicking on: <a href="https://github.com/victorhasse/BadTurtle" target="_blank">GitHub Project Link</a>
+            </p>
+            <hr>
+            <h3 style="text-align: center;">Skyfire</h3>
+            <h4 style="text-align: center;"><img src="../assets/images/skyfire.png" height="350" alt="skyfire screenshot gameplay"/></h4>
+            <p>
+            An exciting retro game where the player controls a spaceship flying through space, Your goal is to kill as many enemies as you can! Built using Godot language.<br>
+            You can see more about clicking on: <a href="https://github.com/victorhasse/SkyFire" target="_blank">GitHub Project Link</a>
+            </p>
+    <div id="footer"></div>
+
+    <script>
+  // Carrega o header
+  fetch("../includes/header.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("header").innerHTML = data;
+
+      // Recarrega o script do tema, se necessário
+      const themeScript = document.createElement("script");
+      themeScript.src = "../assets/js/script.js";
+      document.body.appendChild(themeScript);
+    });
+</script>
+
+<script>
+  // Carrega o footer (se ainda não estiver)
+  fetch("../includes/footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+      document.getElementById("year").textContent = new Date().getFullYear();
+    });
+</script>
+</body>
+</html>
