@@ -4,42 +4,258 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victor Hasse's Website</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 <body>
-    <div id="header"></div>
-        
-    <h1 style="text-align: center;">Welcome to Victor Hasse's Website!</h1>
+    <!-- ===== Header ===== -->
+<header>
+  <div class="header-container">
+    <h1 class="logo">
+      <a href="index.html">
+        <img src="assets/images/logo-preto.png" alt="Website logo featuring VH initials in a modern minimalist design" height="50">
+      </a>
+    </h1>
+
+<div class="footer-socials">
+            <a href="https://github.com/victorhasse" target="_blank" aria-label="GitHub">
+            <img src="assets/images/github.svg" alt="GitHub" height="32">
+            </a>
+            <a>
+            <a href="https://behance.com/victorhasse" target="_blank" aria-label="Behance">
+            <img src="assets/images/behance.svg" alt="Behance" height="32">
+            </a>
+            <a href="https://linkedin.com/in/victorhasse" target="_blank" aria-label="LinkedIn">
+            <img src="assets/images/linkedin.svg" alt="LinkedIn" height="32">
+            </a>
+            <a href="https://instagram.com/hassesdrawings" target="_blank" aria-label="Instagram">
+            <img src="assets/images/instagram.svg" alt="Instagram" height="32">
+            </a>
+            <a href="mailto:vhasse22@gmail.com" aria-label="Email">
+            <img src="assets/images/email.svg" alt="Email" height="32">
+            </a>
+        </div>
+
+    <nav class="nav-links">
+        <a href="#home">Home</a> /
+        <a href="#about">About Me</a> /
+        <a href="#dev">Dev Projects</a> /
+        <a href="#design">Design Projects</a>
+    </nav>
+
+    <button id="toggle-theme" title="Toggle Theme">
+      <img id="theme-icon" src="assets/images/dia-e-noite.png" height="30" alt="Theme Icon"/>
+    </button>
+  </div>
+</header>
+
+    <!-- ===== Barra de progresso ===== -->
+  <div id="progress-bar"></div>
+
+        <!-- ===== Home ===== -->
+        <section id="home">
+            <h1 style="text-align: center;">Welcome to Victor Hasse's Website!</h1>
+            <h2 style="text-align: center;"> 
+                <img src="assets/images/hasse_lo-fi.gif" 
+                class="illustration-img"
+                alt="Victor's Illustration" />
+            </h2>
+        </section>
+
+        <!-- ===== About Me ===== -->
+        <section id="about">
+            <p>
+            <h2 style="text-align: center;"><img id="img1" src="assets/images/foto de perfil.png" height="200" alt="It's a Victor's profile picture"></h2>
+            <h1 style="text-align: center;">About Me</h1>
+            </p>
+
+            <h2>Summary</h2>
+            <p>
+            <b>Hello! My name is Victor Hasse.</b>
+            </p>
+            <p>
+            I'm a Brazilian currently transitioning my career into I.T., with a background in Graphic Design that strengthens my UI/UX perspective.<br>
+            I’m pursuing a Bachelor’s degree in Computer Science (4th semester) and seeking a Software Development Internship preferably in Front-End or Full Stack,<br>
+            where I can apply my knowledge of Java, Python, and web technologies, while gaining hands-on experience with real-world projects and agile methodologies.
+            </p>
+
+            <h2>Education</h2>
+            <p>
+            <b style="color: #6679a4;">Graphic Design.</b> Universidade do Vale do Itajaí (UNIVALI) 2014 – 2018 | Florianópolis, SC, Brazil<br>
+            <b style="color: #6679a4;">Computer Science.</b> Universidade do Sul de Santa Catarina (UNISUL) 2024 – <i style="color: #6679a4;">in progress</i> | Florianópolis, SC, Brazil
+            </p>
+
+            <h2>Courses and Certifications</h2>
+            <p>
+            <ul>
+                <li>100 Days of Code: The Complete Python Pro Bootcamp. Udemy.</li>
+                <li>The Complete Full-Stack Web Development Bootcamp. Udemy.</li>
+                <li>Java Foundations course completion from Oracle Academy.</li>
+                <li>Database Design course completion from Oracle Academy.</li>
+            </ul>
+            </p>
+
+            <h2>Skills</h2>
+            <p>
+            <ul>
+                <li><b style="color: #6679a4;">Programming Languages:</b> Python, Java, HTML, CSS, JavaScript/Typescript</li>
+                <li><b style="color: #6679a4;">Frameworks/Libraries:</b> React, Bootstrap.</li>
+                <li><b style="color: #6679a4;">Databases:</b> MySQL, SQLite.</li>
+                <li><b style="color: #6679a4;">Tools:</b> Git, GitHub, VS Code, Pycharm, NetBeans.</li>
+                <li><b style="color: #6679a4;">Operating Systems:</b> MacOS.</li>
+                <li><b style="color: #6679a4;">Design:</b> Figma, Adobe CC (Photoshop, Illustrator, Premiere Pro), Procreate (2D Ilustration & Animation).</li>
+                <li><b style="color: #6679a4;">Other Skills:</b> Agile Methodologies, UI/UX Design, Problem-Solving, Team Collaboration.</li>
+            </ul>
+            </p>
+
+            <h2>Languages</h2>
+            <p>
+            <ul>
+                <li><b style="color: #6679a4;">Portuguese:</b> Native</li>
+                <li><b style="color: #6679a4;">English:</b> Intermediary - CEFR - B2</li>
+            </ul>
+            </p>
+        </section>
+
+        <!-- ===== Dev Projects ===== -->
+        <section id="dev">
+            <h2 style="text-align: center;">Dev Projects</h2>
+            <p style="text-align: center;">
+            Here are some of my favorite works, but you can see more on my GitHub.
+            </p>
+
+          <div class="project-grid">
+          <!-- Projeto 1 -->
+          <div class="project-card">
+            <img src="assets/images/skyfire.png" alt="skyfire project" class="project-img">
+          <div class="project-info">
+            <h3>Skyfire</h3>
+            <p>It consists of a spaceship piloted by the player who must shoot (by pressing space) at enemies that appear from above;
+              the player can only move sideways. It includes a scoring system, pause (ESC key), and end game.</p>
+              <p><b>Language: </b>Godot</p>
+            <a href="https://github.com/victorhasse/SkyFire" target="_blank" class="project-btn"> 🔗 View on GitHub </a>
+          </div>
+          </div>
+
+          <!-- Projeto 2 -->
+          <div class="project-card">
+            <img src="assets/images/badturtles.png" alt="badturtles project" class="project-img">
+          <div class="project-info">
+            <h3>BadTurtles / Labirinto</h3>
+            <p>It's a simple game where the player must survive against enemies, which are turtles. Your goal is to avoid them within the maze until you get the candy, which gives you superpowers to defeat them.
+              By killing all the turtles, you win the game! It includes a scoring system, pause (ESC key), and game over.</p>
+            <p><b>Language: </b>Godot</p>
+            <a href="https://github.com/victorhasse/BadTurtle" target="_blank" class="project-btn"> 🔗 View on GitHub </a>
+          </div>
+          </div>
+          
+          </div>
+        </section>
+
+        <!-- ===== Design Projects ===== -->
+        <section id="design">
+            <h2 style="text-align: center;">Design Projects</h2>
+            <p style="text-align: center;">
+            Here are some of my favorite works,<br>
+            but you can see more on my Behance or on my Instagram drawings.
+            </p>
+
+          <div class="project-grid">
+          <!-- Projeto 1 -->
+          <div class="project-card">
+            <img src="assets/images/Riders_on_the_Storm.gif" alt="rider on the storm, 2d animation" class="project-img">
+          <div class="project-info">
+            <h3>Rider on the Storm</h3>
+            <p>Originally intended to be a simple illustration study, it ended up becoming a 2D animation project.
+              It took many hours animating layer by layer to achieve the final result.</p>
+              <p><b>Tools: </b>Procreate</p>
+            <a href="https://www.instagram.com/reel/CXUa8GsjoHI/?igsh=anRxYXVzbWdybnFn" target="_blank" class="project-btn"> 🔗 View on Instagram </a>
+          </div>
+          </div>
+
+          <!-- Projeto 2 -->
+          <div class="project-card">
+            <img src="assets/images/partiufloripalogo.jpg" alt="character design project" class="project-img">
+          <div class="project-info">
+            <h3>Partiu Floripa Logo</h3>
+            <p>Yes, I used to have a YouTube channel...<br>
+              Here’s the branding and development project I created for it.
+              from selecting references and designing the visual identity to defining the color palette and applying the brand to real products.
+              I also developed the channel’s intro animation.</p>
+              <p><b>Tools: </b>Photoshop, Illustrator & Premiere Pro</p>
+            <a href="https://www.behance.net/gallery/69614143/Canal-Partiu-Floripa" target="_blank" class="project-btn"> 🔗 View on Behance </a>
+          </div>
+          </div>
+
+          </div>
+        </section>
+
+        <!-- ===== Footer ===== -->
+        <footer>
+        <div class="footer-container">
+            <p>© <span id="year"></span> Designed & Developed by <b style="font-size: large;">Victor Hasse</b> — All rights reserved.</p>
+
+        <nav class="footer-links">
+            <a href="#home">Home</a> /
+            <a href="#about">About Me</a> /
+            <a href="#dev">Dev Projects</a> /
+            <a href="#design">Design Projects</a>
+        </nav>
+            <p>Contacts:</p>
+         <div class="footer-socials">
+            <a href="https://github.com/victorhasse" target="_blank" aria-label="GitHub">
+            <img src="assets/images/github.svg" alt="GitHub" height="48">
+            </a>
+            <a>
+            <a href="https://behance.com/victorhasse" target="_blank" aria-label="Behance">
+            <img src="assets/images/behance.svg" alt="Behance" height="48">
+            </a>
+            <a href="https://linkedin.com/in/victorhasse" target="_blank" aria-label="LinkedIn">
+            <img src="assets/images/linkedin.svg" alt="LinkedIn" height="48">
+            </a>
+            <a href="https://instagram.com/hassesdrawings" target="_blank" aria-label="Instagram">
+            <img src="assets/images/instagram.svg" alt="Instagram" height="48">
+            </a>
+            <a href="mailto:vhasse22@gmail.com" aria-label="Email">
+            <img src="assets/images/email.svg" alt="Email" height="48">
+            </a>
+        </div>
+        </div>
+        </footer>
+
+        <!-- ===== Scripts ===== -->
+        <script>
+        // Atualiza o ano automaticamente
+        document.getElementById("year").textContent = new Date().getFullYear();
     
-    <hr>
+        // ===== Recarrega Tema ======
+        const themeScript = document.createElement("script");
+        themeScript.src = "assets/js/script.js";
+        document.body.appendChild(themeScript);
     
-    <h2 style="text-align: center;"><img src="assets/images/hasse_lo-fi.gif" height="500" alt="Victor's Ilustration"></h2>
+        // ===== Scroll barra de progresso =====
+        window.addEventListener("scroll", () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        document.getElementById("progress-bar").style.width = scrollPercent + "%";
+        });
 
-    <div id="footer"></div>
+        // ===== Animação de entrada nas seções =====
+        const observer = new IntersectionObserver(
+        entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+        },
+        { threshold: 0.2 }
+        );
 
-    <script>
-  // Carrega o header
-  fetch("./includes/header.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("header").innerHTML = data;
-
-      // Recarrega o script do tema, se necessário
-      const themeScript = document.createElement("script");
-      themeScript.src = "assets/js/script.js";
-      document.body.appendChild(themeScript);
-    });
-</script>
-
-<script>
-  // Carrega o footer 
-  fetch("./includes/footer.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("footer").innerHTML = data;
-      document.getElementById("year").textContent = new Date().getFullYear();
-    });
-</script>
+        document.querySelectorAll("section").forEach(section => {
+        observer.observe(section);
+        });
+        </script>
 </body>
 </html>

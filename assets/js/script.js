@@ -6,18 +6,18 @@ const logoImg = document.querySelector('.logo img');
 // Função para atualizar o ícone
 function updateIcon() {
   if (body.classList.contains('dark-mode')) {
-    themeIcon.src = "/assets/images/dia-e-noite.svg"; // ícone do modo escuro
+    themeIcon.src = "assets/images/dia-e-noite.svg"; // ícone do modo escuro
   } else {
-    themeIcon.src = "/assets/images/dia-e-noite-3.svg"; // ícone do modo claro
+    themeIcon.src = "assets/images/dia-e-noite-3.svg"; // ícone do modo claro
   }
 }
 
 // Função para atualizar o logo
 function updateLogo() {
   if (body.classList.contains('dark-mode')) {
-    logoImg.src = '../assets/images/logo-branco.png'; // Logo branca para modo escuro
+    logoImg.src = 'assets/images/logo-branco.png'; // Logo branca para modo escuro
   } else {
-    logoImg.src = '../assets/images/logo-preto.png'; // Logo preta para modo claro
+    logoImg.src = 'assets/images/logo-preto.png'; // Logo preta para modo claro
   }
 }
 
