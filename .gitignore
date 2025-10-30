@@ -1,0 +1,8 @@
+# Ignora arquivos de configuração do VS Code
+*.vscode/
+
+# Ignora metadados do macOS
+*.DS_Store
+
+# Ignora a pasta de pacotes do Node
+*node_modules/
