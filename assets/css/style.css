@@ -139,7 +139,7 @@ header {
    📏 Espaçamento do conteúdo (header fixo)
    --------------------------------------------------------- */
 body {
-  padding-top: 160px; /* ajusta conforme a altura do header */
+  padding-top: 100px; /* ajusta conforme a altura do header */
 }
 
 /* ---------------------------------------------------------
@@ -345,4 +345,65 @@ section.visible {
   color: #fff;
   transform: translateY(-3px);
   box-shadow: 0 4px 12px #0078ff4d;
+}
+
+/* =========================================================
+   ⬇️ BOTÃO DE ROLAR PARA BAIXO
+   ========================================================= */
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
+
+.scroll-down-btn-3 {
+    position: absolute; 
+    bottom: 10px;
+    left: 50%;
+    z-index: 9999;
+    display: inline-block;
+    /* Centraliza o botão horizontalmente */
+    transform: translateX(-50%); 
+    color: var(--text-color);
+    font : normal 400 20px/1 'Fira Code', monospace;
+    letter-spacing: .1em;
+    text-decoration: none;
+    transition: opacity .3s;
+    padding-top: 80px; 
+}
+
+/* Define a cor do círculo, seta e pulsação com base no tema */
+.scroll-down-btn-3 span {
+    position: absolute; top: 0; left: 50%; width: 46px; height: 46px;
+    margin-left: -23px; border: 1px solid var(--text-color); /* Borda com cor do texto */
+    border-radius: 100%; box-sizing: border-box;
+}
+
+.scroll-down-btn-3 span::after {
+    position: absolute; top: 50%; left: 50%; content: '';
+    width: 16px; height: 16px; margin: -12px 0 0 -8px;
+    border-left: 1px solid var(--text-color); /* Seta com cor do texto */
+    border-bottom: 1px solid var(--text-color);
+    transform: rotate(-45deg); box-sizing: border-box;
+}
+
+.scroll-down-btn-3 span::before {
+    position: absolute; top: 0; left: 0; z-index: -1; content: '';
+    width: 44px; height: 44px; 
+    /* Pulsação e a cor dela */
+    box-shadow: 0 0 0 0 var(--text-color); 
+    border-radius: 100%; opacity: 0; 
+    animation: sdb03 3s infinite; box-sizing: border-box;
+}
+
+/* Definição da animação de pulso */
+@keyframes sdb03 {
+    0% { opacity: 0; }
+    30% { opacity: 1; }
+    60% { box-shadow: 0 0 0 4px var(--text-color); opacity: 0; } 
+    20% { opacity: 1; }
+}
+
+/* Inclue os prefixos webkit para melhor compatibilidade em alguns navegadores */
+@-webkit-keyframes sdb03 {
+    0% { opacity: 0; }
+    30% { opacity: 1; }
+    60% { -webkit-box-shadow: 0 0 0 4px var(--text-color); opacity: 0; }
+    20% { opacity: 1; }
 }

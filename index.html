@@ -53,17 +53,22 @@
   <div id="progress-bar"></div>
 
         <!-- ===== Home ===== -->
-        <section id="home">
+        <section id="home" class="full-screen-section">
             <h1 style="text-align: center;">Welcome to Victor Hasse's Website!</h1>
             <h2 style="text-align: center;"> 
                 <img src="assets/images/hasse_lo-fi.gif" 
                 class="illustration-img"
                 alt="Victor's Illustration" />
             </h2>
+            <!-- ===== Scroll Down button ===== -->
+              <a href="#about" class="scroll-down-btn-3">
+              <span></span>
+              Scroll Down
+              </a>
         </section>
 
         <!-- ===== About Me ===== -->
-        <section id="about">
+        <section id="about" class="full-screen-section">
             <p>
             <h2 style="text-align: center;"><img id="img1" src="assets/images/foto de perfil.png" height="200" alt="It's a Victor's profile picture"></h2>
             <h1 style="text-align: center;">About Me</h1>
@@ -118,7 +123,7 @@
         </section>
 
         <!-- ===== Dev Projects ===== -->
-        <section id="dev">
+        <section id="dev" class="full-screen-section">
             <h2 style="text-align: center;">Dev Projects</h2>
             <p style="text-align: center;">
             Here are some of my favorite works, but you can see more on my GitHub.
@@ -153,7 +158,7 @@
         </section>
 
         <!-- ===== Design Projects ===== -->
-        <section id="design">
+        <section id="design" class="full-screen-section">
             <h2 style="text-align: center;">Design Projects</h2>
             <p style="text-align: center;">
             Here are some of my favorite works,<br>
@@ -161,7 +166,8 @@
             </p>
 
           <div class="project-grid">
-          <!-- Projeto 1 -->
+          
+            <!-- Projeto 1 -->
           <div class="project-card">
             <img src="assets/images/Riders_on_the_Storm.gif" alt="rider on the storm, 2d animation" class="project-img">
           <div class="project-info">
@@ -224,6 +230,25 @@
         </footer>
 
         <!-- ===== Scripts ===== -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+        <script>
+        $(function() {
+            // o script aplica a rolagem suave a qualquer link que aponte para um ID(#)
+            $('a[href*=#]').on('click', function(e) {
+                e.preventDefault();
+                
+                // Anima a rolagem do HTML/Body para a posição da âncora
+                $('html, body').animate({ 
+                    scrollTop: $($(this).attr('href')).offset().top
+                }, 
+                // Duração da animação (500ms)
+                500, 
+                'linear');
+            });
+        });
+        </script>
+        
         <script>
         // Atualiza o ano automaticamente
         document.getElementById("year").textContent = new Date().getFullYear();
@@ -256,6 +281,6 @@
         document.querySelectorAll("section").forEach(section => {
         observer.observe(section);
         });
-        </script>
+        </script>      
 </body>
 </html>
