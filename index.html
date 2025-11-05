@@ -3,284 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Victor Hasse's Website</title>
+    <title data-i18n="title_page">Victor Hasse's Website</title>
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 <body>
-    <!-- ===== Header ===== -->
-<header>
-  <div class="header-container">
-    <h1 class="logo">
-      <a href="index.html">
-        <img src="assets/images/logo-preto.png" alt="Website logo featuring VH initials in a modern minimalist design" height="50">
-      </a>
-    </h1>
+    <header>
+        <div class="header-container">
+            <h1 class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logo-preto.png" alt="Website logo featuring VH initials in a modern minimalist design" height="50">
+                </a>
+            </h1>
 
-<div class="footer-socials">
-            <a href="https://github.com/victorhasse" target="_blank" aria-label="GitHub">
-            <img src="assets/images/github.svg" alt="GitHub" height="32">
-            </a>
-            <a>
-            <a href="https://behance.com/victorhasse" target="_blank" aria-label="Behance">
-            <img src="assets/images/behance.svg" alt="Behance" height="32">
-            </a>
-            <a href="https://linkedin.com/in/victorhasse" target="_blank" aria-label="LinkedIn">
-            <img src="assets/images/linkedin.svg" alt="LinkedIn" height="32">
-            </a>
-            <a href="https://instagram.com/hassesdrawings" target="_blank" aria-label="Instagram">
-            <img src="assets/images/instagram.svg" alt="Instagram" height="32">
-            </a>
-            <a href="mailto:vhasse22@gmail.com" aria-label="Email">
-            <img src="assets/images/email.svg" alt="Email" height="32">
-            </a>
+            <div class="social-media">
+                <a href="https://github.com/victorhasse" target="_blank" aria-label="GitHub">
+                    <img src="assets/images/github.svg" alt="GitHub" height="32">
+                </a>
+                <a href="https://behance.com/victorhasse" target="_blank" aria-label="Behance">
+                    <img src="assets/images/behance.svg" alt="Behance" height="32">
+                </a>
+                <a href="https://linkedin.com/in/victorhasse" target="_blank" aria-label="LinkedIn">
+                    <img src="assets/images/linkedin.svg" alt="LinkedIn" height="32">
+                </a>
+                <a href="https://instagram.com/hassesdrawings" target="_blank" aria-label="Instagram">
+                    <img src="assets/images/instagram.svg" alt="Instagram" height="32">
+                </a>
+                <a href="mailto:vhasse22@gmail.com" aria-label="Email">
+                    <img src="assets/images/email.svg" alt="Email" height="32">
+                </a>
+            </div>
+
+            <nav class="nav-links">
+                <a href="#home" class="i18n" data-i18n="nav_home">Home</a> /
+                <a href="#about" class="i18n" data-i18n="nav_about">About Me</a> /
+                <a href="#dev" class="i18n" data-i18n="nav_dev">Dev Projects</a> /
+                <a href="#design" class="i18n" data-i18n="nav_design">Design Projects</a>
+                
+                <button id="lang-toggle" title="Change Language">
+                    <span id="current-lang">EN</span>
+                </button>
+            </nav>
+
+            <button id="toggle-theme" title="Toggle Theme">
+                <img id="theme-icon" src="assets/images/dia-e-noite.png" height="30" alt="Theme Icon"/>
+            </button>
         </div>
+    </header>
 
-    <nav class="nav-links">
-        <a href="#home">Home</a> /
-        <a href="#about">About Me</a> /
-        <a href="#dev">Dev Projects</a> /
-        <a href="#design">Design Projects</a>
-    </nav>
+    <div id="progress-bar"></div>
 
-    <button id="toggle-theme" title="Toggle Theme">
-      <img id="theme-icon" src="assets/images/dia-e-noite.png" height="30" alt="Theme Icon"/>
-    </button>
-  </div>
-</header>
+    <section id="home" class="full-screen-section">
+        <h1 style="text-align: center;" class="i18n" data-i18n="home_title">Welcome to Victor Hasse's Website!</h1>
+        <h2 style="text-align: center;"> 
+            <img src="assets/images/hasse_lo-fi.gif" 
+            class="illustration-img"
+            alt="Victor's Illustration" />
+        </h2>
+        <a href="#about" class="scroll-down-btn">
+            <span></span>
+            <p class="i18n" data-i18n="scroll_down">Scroll Down</p>
+        </a>
+    </section>
 
-    <!-- ===== Barra de progresso ===== -->
-  <div id="progress-bar"></div>
+    <section id="about" class="full-screen-section">
+        <h2 style="text-align: center;"><img id="img1" src="assets/images/foto de perfil.png" height="200" alt="It's a Victor's profile picture"></h2>
+        <h1 style="text-align: center;" class="i18n" data-i18n="about_title">About Me</h1>
 
-        <!-- ===== Home ===== -->
-        <section id="home" class="full-screen-section">
-            <h1 style="text-align: center;">Welcome to Victor Hasse's Website!</h1>
-            <h2 style="text-align: center;"> 
-                <img src="assets/images/hasse_lo-fi.gif" 
-                class="illustration-img"
-                alt="Victor's Illustration" />
-            </h2>
-            <!-- ===== Scroll Down button ===== -->
-              <a href="#about" class="scroll-down-btn-3">
-              <span></span>
-              Scroll Down
-              </a>
-        </section>
-
-        <!-- ===== About Me ===== -->
-        <section id="about" class="full-screen-section">
-            <p>
-            <h2 style="text-align: center;"><img id="img1" src="assets/images/foto de perfil.png" height="200" alt="It's a Victor's profile picture"></h2>
-            <h1 style="text-align: center;">About Me</h1>
-            </p>
-
-            <h2>Summary</h2>
-            <p>
-            <b>Hello! My name is Victor Hasse.</b>
-            </p>
-            <p>
+        <h2 class="i18n" data-i18n="about_summary_h2">Summary</h2>
+        <p>
+            <b class="i18n" data-i18n="about_intro_bold">Hello! My name is Victor Hasse.</b>
+        </p>
+        <p class="i18n" data-i18n="about_intro_p">
             I'm a Brazilian currently transitioning my career into I.T., with a background in Graphic Design that strengthens my UI/UX perspective.<br>
             I’m pursuing a Bachelor’s degree in Computer Science (4th semester) and seeking a Software Development Internship preferably in Front-End or Full Stack,<br>
             where I can apply my knowledge of Java, Python, and web technologies, while gaining hands-on experience with real-world projects and agile methodologies.
-            </p>
+        </p>
 
-            <h2>Education</h2>
-            <p>
+        <h2 class="i18n" data-i18n="about_education_h2">Education</h2>
+        <p>
             <b style="color: #6679a4;">Graphic Design.</b> Universidade do Vale do Itajaí (UNIVALI) 2014 – 2018 | Florianópolis, SC, Brazil<br>
-            <b style="color: #6679a4;">Computer Science.</b> Universidade do Sul de Santa Catarina (UNISUL) 2024 – <i style="color: #6679a4;">in progress</i> | Florianópolis, SC, Brazil
-            </p>
+            <b style="color: #6679a4;">Computer Science.</b> Universidade do Sul de Santa Catarina (UNISUL) 2024 – <i style="color: #6679a4;" class="i18n" data-i18n="about_education_progress">in progress</i> | Florianópolis, SC, Brazil
+        </p>
 
-            <h2>Courses and Certifications</h2>
-            <p>
+        <h2 class="i18n" data-i18n="about_courses_h2">Courses and Certifications</h2>
+        <p>
             <ul>
                 <li>100 Days of Code: The Complete Python Pro Bootcamp. Udemy.</li>
                 <li>The Complete Full-Stack Web Development Bootcamp. Udemy.</li>
                 <li>Java Foundations course completion from Oracle Academy.</li>
                 <li>Database Design course completion from Oracle Academy.</li>
             </ul>
-            </p>
+        </p>
 
-            <h2>Skills</h2>
-            <p>
+        <h2 class="i18n" data-i18n="about_skills_h2">Skills</h2>
+        <p>
             <ul>
-                <li><b style="color: #6679a4;">Programming Languages:</b> Python, Java, HTML, CSS, JavaScript/Typescript</li>
-                <li><b style="color: #6679a4;">Frameworks/Libraries:</b> React, Bootstrap.</li>
-                <li><b style="color: #6679a4;">Databases:</b> MySQL, SQLite.</li>
-                <li><b style="color: #6679a4;">Tools:</b> Git, GitHub, VS Code, Pycharm, NetBeans.</li>
-                <li><b style="color: #6679a4;">Operating Systems:</b> MacOS.</li>
-                <li><b style="color: #6679a4;">Design:</b> Figma, Adobe CC (Photoshop, Illustrator, Premiere Pro), Procreate (2D Ilustration & Animation).</li>
-                <li><b style="color: #6679a4;">Other Skills:</b> Agile Methodologies, UI/UX Design, Problem-Solving, Team Collaboration.</li>
+                <li class="i18n" data-i18n="skills_languages"><b style="color: #6679a4;">Programming Languages:</b> Python, Java, HTML, CSS, JavaScript/Typescript</li>
+                <li class="i18n" data-i18n="skills_frameworks"><b style="color: #6679a4;">Frameworks/Libraries:</b> React, Bootstrap.</li>
+                <li class="i18n" data-i18n="skills_databases"><b style="color: #6679a4;">Databases:</b> MySQL, SQLite.</li>
+                <li class="i18n" data-i18n="skills_tools"><b style="color: #6679a4;">Tools:</b> Git, GitHub, VS Code, Pycharm, NetBeans.</li>
+                <li class="i18n" data-i18n="skills_os"><b style="color: #6679a4;">Operating Systems:</b> MacOS.</li>
+                <li class="i18n" data-i18n="skills_design"><b style="color: #6679a4;">Design:</b> Figma, Adobe CC (Photoshop, Illustrator, Premiere Pro), Procreate (2D Ilustration & Animation).</li>
+                <li class="i18n" data-i18n="skills_other"><b style="color: #6679a4;">Other Skills:</b> Agile Methodologies, UI/UX Design, Problem-Solving, Team Collaboration.</li>
             </ul>
-            </p>
+        </p>
 
-            <h2>Languages</h2>
-            <p>
+        <h2 class="i18n" data-i18n="about_languages_h2">Languages</h2>
+        <p>
             <ul>
-                <li><b style="color: #6679a4;">Portuguese:</b> Native</li>
-                <li><b style="color: #6679a4;">English:</b> Intermediary - CEFR - B2</li>
+                <li class="i18n" data-i18n="lang_portuguese"><b style="color: #6679a4;">Portuguese:</b> Native</li>
+                <li class="i18n" data-i18n="lang_english"><b style="color: #6679a4;">English:</b> Intermediary - CEFR - B2</li>
             </ul>
-            </p>
-        </section>
+        </p>
+    </section>
 
-        <!-- ===== Dev Projects ===== -->
-        <section id="dev" class="full-screen-section">
-            <h2 style="text-align: center;">Dev Projects</h2>
-            <p style="text-align: center;">
-            Here are some of my favorite works, but you can see more on my GitHub.
-            </p>
+    <section id="dev" class="full-screen-section">
+        <h2 style="text-align: center;" class="i18n" data-i18n="dev_title">Dev Projects</h2>
+        <p style="text-align: center;" class="i18n" data-i18n="dev_subtitle">
+            Here are some of my favorite works,<br>
+            but you can see more on my GitHub.
+        </p>
+        
+        <div class="carousel-container">
+            <div class="project-grid scrollable-projects">
+                <div class="project-card">
+                    <img src="assets/images/skyfire.png" alt="skyfire game project" class="project-img">
+                    <div class="project-info">
+                        <h3>Skyfire</h3>
+                        <p class="i18n" data-i18n="dev_skyfire_desc">It consists of a spaceship piloted by the player who must shoot (by pressing space) at enemies that appear from above; the player can only move sideways. It includes a scoring system, pause (ESC key), and end game.</p>
+                        <p><b>Language: </b>Godot</p>
+                        <p><b>Created in: </b>2025</p>
+                        <a href="https://github.com/victorhasse/SkyFire" target="_blank" class="project-btn i18n" data-i18n="btn_view_github"> 🔗 View on GitHub </a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <img src="assets/images/badturtles.png" alt="badturtles game project" class="project-img">
+                    <div class="project-info">
+                        <h3>BadTurtles / Labirinto</h3>
+                        <p class="i18n" data-i18n="dev_badturtles_desc">It's a simple game where the player must survive against enemies, which are turtles. Your goal is to avoid them within the maze until you get the candy, which gives you superpowers to defeat them. By killing all the turtles, you win the game! It includes a scoring system, pause (ESC key), and game over.</p>
+                        <p><b>Language: </b>Godot</p>
+                        <p><b>Created in: </b>2025</p>
+                        <a href="https://github.com/victorhasse/BadTurtle" target="_blank" class="project-btn i18n" data-i18n="btn_view_github"> 🔗 View on GitHub </a>
+                    </div>
+                </div>
 
-          <div class="project-grid">
-          <!-- Projeto 1 -->
-          <div class="project-card">
-            <img src="assets/images/skyfire.png" alt="skyfire project" class="project-img">
-          <div class="project-info">
-            <h3>Skyfire</h3>
-            <p>It consists of a spaceship piloted by the player who must shoot (by pressing space) at enemies that appear from above;
-              the player can only move sideways. It includes a scoring system, pause (ESC key), and end game.</p>
-              <p><b>Language: </b>Godot</p>
-            <a href="https://github.com/victorhasse/SkyFire" target="_blank" class="project-btn"> 🔗 View on GitHub </a>
-          </div>
-          </div>
+                <div class="project-card">
+                    <img src="assets/images/unisouls-temporario.png" alt="Unisouls Game Project" class="project-img">
+                    <div class="project-info">
+                        <h3>UNISOULS</h3>
+                        <p class="i18n" data-i18n="dev_unisouls_desc">Its a secret yet...</p>
+                        <p><b>Language: </b>Godot</p>
+                        <p><b>Created in: </b>2025</p>
+                        <a href="https://github.com/lmitsuol/UNISOULS" target="_blank" class="project-btn i18n" data-i18n="btn_view_github"> 🔗 View on GitHub </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="carousel-controls">  
+                <span class="arrowbtn arrowbtn-left" onclick="scrollProjects('dev', -1)"></span>
+                <span class="arrowbtn arrowbtn-right" onclick="scrollProjects('dev', 1)"></span>
+            </div>
+        </div>
+    </section>
 
-          <!-- Projeto 2 -->
-          <div class="project-card">
-            <img src="assets/images/badturtles.png" alt="badturtles project" class="project-img">
-          <div class="project-info">
-            <h3>BadTurtles / Labirinto</h3>
-            <p>It's a simple game where the player must survive against enemies, which are turtles. Your goal is to avoid them within the maze until you get the candy, which gives you superpowers to defeat them.
-              By killing all the turtles, you win the game! It includes a scoring system, pause (ESC key), and game over.</p>
-            <p><b>Language: </b>Godot</p>
-            <a href="https://github.com/victorhasse/BadTurtle" target="_blank" class="project-btn"> 🔗 View on GitHub </a>
-          </div>
-          </div>
-          
-          </div>
-        </section>
-
-        <!-- ===== Design Projects ===== -->
-        <section id="design" class="full-screen-section">
-            <h2 style="text-align: center;">Design Projects</h2>
-            <p style="text-align: center;">
+    <section id="design" class="full-screen-section">
+        <h2 style="text-align: center;" class="i18n" data-i18n="design_title">Design Projects</h2>
+        <p style="text-align: center;" class="i18n" data-i18n="design_subtitle">
             Here are some of my favorite works,<br>
             but you can see more on my Behance or on my Instagram drawings.
-            </p>
+        </p>
 
-          <div class="project-grid">
-          
-            <!-- Projeto 1 -->
-          <div class="project-card">
-            <img src="assets/images/Riders_on_the_Storm.gif" alt="rider on the storm, 2d animation" class="project-img">
-          <div class="project-info">
-            <h3>Rider on the Storm</h3>
-            <p>Originally intended to be a simple illustration study, it ended up becoming a 2D animation project.
-              It took many hours animating layer by layer to achieve the final result.</p>
-              <p><b>Tools: </b>Procreate</p>
-            <a href="https://www.instagram.com/reel/CXUa8GsjoHI/?igsh=anRxYXVzbWdybnFn" target="_blank" class="project-btn"> 🔗 View on Instagram </a>
-          </div>
-          </div>
+        <div class="carousel-container">
+            <div class="project-grid scrollable-projects">
+                
+                <div class="project-card">
+                    <img src="assets/images/Riders_on_the_Storm.gif" alt="rider on the storm, 2d animation" class="project-img">
+                    <div class="project-info">
+                        <h3>Rider on the Storm</h3>
+                        <p class="i18n" data-i18n="design_rider_desc">Originally intended to be a simple illustration study, it ended up becoming a 2D animation project. It took many hours animating layer by layer to achieve the final result.</p>
+                        <p><b>Tools: </b>Procreate</p>
+                        <p><b>Created in: </b>2021</p>
+                        <a href="https://www.instagram.com/reel/CXUa8GsjoHI/?igsh=anRxYXVzbWdybnFn" target="_blank" class="project-btn i18n" data-i18n="btn_view_instagram"> 🔗 View on Instagram </a>
+                    </div>
+                </div>
 
-          <!-- Projeto 2 -->
-          <div class="project-card">
-            <img src="assets/images/partiufloripalogo.jpg" alt="character design project" class="project-img">
-          <div class="project-info">
-            <h3>Partiu Floripa Logo</h3>
-            <p>Yes, I used to have a YouTube channel...<br>
-              Here’s the branding and development project I created for it.
-              from selecting references and designing the visual identity to defining the color palette and applying the brand to real products.
-              I also developed the channel’s intro animation.</p>
-              <p><b>Tools: </b>Photoshop, Illustrator & Premiere Pro</p>
-            <a href="https://www.behance.net/gallery/69614143/Canal-Partiu-Floripa" target="_blank" class="project-btn"> 🔗 View on Behance </a>
-          </div>
-          </div>
+                <div class="project-card">
+                    <img src="assets/images/partiufloripalogo.jpg" alt="partiu floripa logo project" class="project-img">
+                    <div class="project-info">
+                        <h3>Partiu Floripa <br> Brand Identity</h3>
+                        <p class="i18n" data-i18n="design_partiu_desc">Yes, I used to have a YouTube channel... Here’s the branding and development project I created for it. from selecting references and designing the visual identity to defining the color palette and applying the brand to real products. I also developed the channel’s intro animation.</p>
+                        <p><b>Tools: </b>Photoshop, Illustrator & Premiere Pro</p>
+                        <p><b>Created in: </b>2018</p>
+                        <a href="https://www.behance.net/gallery/69614143/Canal-Partiu-Floripa" target="_blank" class="project-btn i18n" data-i18n="btn_view_behance"> 🔗 View on Behance </a>
+                    </div>
+                </div>
 
-          </div>
-        </section>
+                <div class="project-card">
+                    <img src="assets/images/compose-logo.png" alt="compose logo project" class="project-img">
+                    <div class="project-info">
+                        <h3>Composê <br> Brand Identity</h3>
+                        <p class="i18n" data-i18n="design_compose_desc">A brand creation project for the company Compose. A brand that embodies elegance and sophistication. The visual identity features a custom, handcrafted calligraphic typeface, designed to express the brand’s refined character. The color palette was carefully chosen to evoke the same sense of grace and distinction that defines Compose’s essence.</p>
+                        <p><b>Tools: </b>Photoshop & Illustrator</p>
+                        <p><b>Created in: </b>2017</p>
+                        <a href="https://www.behance.net/gallery/237625839/Compose-Brand-Identity" target="_blank" class="project-btn i18n" data-i18n="btn_view_behance"> 🔗 View on Behance </a>
+                    </div>
+                </div>
 
-        <!-- ===== Footer ===== -->
-        <footer>
+            </div>
+            
+            <div class="carousel-controls">
+                <span class="arrowbtn arrowbtn-left" onclick="scrollProjects('design', -1)"></span>
+                <span class="arrowbtn arrowbtn-right" onclick="scrollProjects('design', 1)"></span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
         <div class="footer-container">
-            <p>© <span id="year"></span> Designed & Developed by <b style="font-size: large;">Victor Hasse</b> — All rights reserved.</p>
+            <p class="i18n" data-i18n="footer_copyright">© <span id="year"></span> Designed & Developed by <b style="font-size: large;">Victor Hasse</b> — All rights reserved.</p>
 
-        <nav class="footer-links">
-            <a href="#home">Home</a> /
-            <a href="#about">About Me</a> /
-            <a href="#dev">Dev Projects</a> /
-            <a href="#design">Design Projects</a>
-        </nav>
-            <p>Contacts:</p>
-         <div class="footer-socials">
-            <a href="https://github.com/victorhasse" target="_blank" aria-label="GitHub">
-            <img src="assets/images/github.svg" alt="GitHub" height="48">
-            </a>
-            <a>
-            <a href="https://behance.com/victorhasse" target="_blank" aria-label="Behance">
-            <img src="assets/images/behance.svg" alt="Behance" height="48">
-            </a>
-            <a href="https://linkedin.com/in/victorhasse" target="_blank" aria-label="LinkedIn">
-            <img src="assets/images/linkedin.svg" alt="LinkedIn" height="48">
-            </a>
-            <a href="https://instagram.com/hassesdrawings" target="_blank" aria-label="Instagram">
-            <img src="assets/images/instagram.svg" alt="Instagram" height="48">
-            </a>
-            <a href="mailto:vhasse22@gmail.com" aria-label="Email">
-            <img src="assets/images/email.svg" alt="Email" height="48">
-            </a>
+            <nav class="footer-links">
+                <a href="#home" class="i18n" data-i18n="nav_home">Home</a> /
+                <a href="#about" class="i18n" data-i18n="nav_about">About Me</a> /
+                <a href="#dev" class="i18n" data-i18n="nav_dev">Dev Projects</a> /
+                <a href="#design" class="i18n" data-i18n="nav_design">Design Projects</a>
+            </nav>
+            <p class="i18n" data-i18n="footer_contacts">Contacts:</p>
+            <div class="footer-socials">
+                <a href="https://github.com/victorhasse" target="_blank" aria-label="GitHub">
+                    <img src="assets/images/github.svg" alt="GitHub" height="48">
+                </a>
+                <a href="https://behance.com/victorhasse" target="_blank" aria-label="Behance">
+                    <img src="assets/images/behance.svg" alt="Behance" height="48">
+                </a>
+                <a href="https://linkedin.com/in/victorhasse" target="_blank" aria-label="LinkedIn">
+                    <img src="assets/images/linkedin.svg" alt="LinkedIn" height="48">
+                </a>
+                <a href="https://instagram.com/hassesdrawings" target="_blank" aria-label="Instagram">
+                    <img src="assets/images/instagram.svg" alt="Instagram" height="48">
+                </a>
+                <a href="mailto:vhasse22@gmail.com" aria-label="Email">
+                    <img src="assets/images/email.svg" alt="Email" height="48">
+                </a>
+            </div>
         </div>
-        </div>
-        </footer>
+    </footer>
 
-        <!-- ===== Scripts ===== -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-        <script>
+    <script>
+        // Lógica JQuery de Rolagem Suave
         $(function() {
-            // o script aplica a rolagem suave a qualquer link que aponte para um ID(#)
             $('a[href*=#]').on('click', function(e) {
                 e.preventDefault();
-                
-                // Anima a rolagem do HTML/Body para a posição da âncora
                 $('html, body').animate({ 
                     scrollTop: $($(this).attr('href')).offset().top
-                }, 
-                // Duração da animação (500ms)
-                500, 
-                'linear');
+                }, 500, 'linear');
             });
         });
-        </script>
         
-        <script>
-        // Atualiza o ano automaticamente
+        // Atualiza o ano no rodapé automaticamente
         document.getElementById("year").textContent = new Date().getFullYear();
-    
-        // ===== Recarrega Tema ======
+        
+        // Carrega o script de tema dinamicamente
         const themeScript = document.createElement("script");
         themeScript.src = "assets/js/script.js";
         document.body.appendChild(themeScript);
     
-        // ===== Scroll barra de progresso =====
+        // Scroll barra de progresso
         window.addEventListener("scroll", () => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.body.scrollHeight - window.innerHeight;
-        const scrollPercent = (scrollTop / docHeight) * 100;
-        document.getElementById("progress-bar").style.width = scrollPercent + "%";
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.getElementById("progress-bar").style.width = scrollPercent + "%";
         });
 
-        // ===== Animação de entrada nas seções =====
+        // Animação de entrada nas seções
         const observer = new IntersectionObserver(
         entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
         },
         { threshold: 0.2 }
         );
 
         document.querySelectorAll("section").forEach(section => {
-        observer.observe(section);
+            observer.observe(section);
         });
-        </script>      
+
+        // 💡 Lógica Básica de Troca de Idioma (Exemplo)
+        // Isso seria expandido em um arquivo JS dedicado para i18n
+        document.getElementById('lang-toggle').addEventListener('click', () => {
+            const currentLang = document.getElementById('current-lang').textContent;
+            const newLang = currentLang === 'EN' ? 'PT' : 'EN';
+            document.getElementById('current-lang').textContent = newLang;
+            alert(`Linguagem trocada para: ${newLang}. (Função de tradução completa precisa ser implementada)`);
+            // Aqui você chamaria a função para traduzir todos os elementos 'i18n'
+        });
+        
+    </script>      
 </body>
 </html>

@@ -33,6 +33,18 @@
 /* =========================================================
    🧩 ESTILOS GERAIS
    ========================================================= */
+#home h1 {
+  margin-top: 100px;
+}
+
+#dev p {
+  margin-bottom: 50px;
+}
+
+#design p {
+  margin-bottom: 50px;
+}
+
 body {
   font-family: 'Fira Code', monospace;
   margin: 20px;
@@ -205,19 +217,19 @@ footer hr {
   color: var(--accent-color);
 }
 
-.footer-socials {
+.social-media {
   display: flex;
   justify-content: center;
   gap: 6px;
   margin-top: 1px;
 }
 
-.footer-socials img {
+.social-media img {
   opacity: 0.8;
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.footer-socials img:hover {
+.social-media img:hover {
   transform: scale(1.1);
   opacity: 1;
 }
@@ -259,9 +271,10 @@ section.visible {
 }
 
 .illustration-img {
-  max-width: max-content;
+  max-width: 100%;
+  height: auto;
   display: block;
-  margin: 1rem auto;
+  margin: 0 auto;
 }
 
 /* =========================================================
@@ -281,25 +294,43 @@ section.visible {
 }
 
 .project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  justify-items: center;
+  display: flex;
+  padding: 10px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none; /* Firefox */
+  text-overflow: clip;
+  -ms-text-overflow: none; /* IE 10+ */
+  scroll-behavior: smooth;
+}
+
+.project-grid::-webkit-scrollbar {
+  display: none;
 }
 
 .project-card {
   background: #fff;
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
+  box-sizing: border-box;
   box-shadow: 0 4px 10px #00000014;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 360px;
+  max-width: 320px;
   width: 100%;
+  flex: 0 0 320px;
+  margin-right: 1rem;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px #0000001f;
+  box-shadow: 0 5px 8px #0000001f;
+}
+
+.project-info {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
 }
 
 .project-img {
@@ -310,25 +341,28 @@ section.visible {
 }
 
 .project-info {
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
   text-align: center;
 }
 
 .project-info h3 {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.2rem;
   font-size: 1.3rem;
   color: #222;
+  text-align: center;
 }
 
 .project-info p {
   color: #666;
   font-size: 0.95rem;
   line-height: 1.5;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .project-btn {
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   padding: 0.7rem 1.3rem;
   background: #0078ff1a;
   color: #1d2433;
@@ -338,6 +372,7 @@ section.visible {
   font-weight: 600;
   transition: all 0.3s ease;
   backdrop-filter: blur(6px);
+  text-align: center;
 }
 
 .project-btn:hover {
@@ -347,12 +382,24 @@ section.visible {
   box-shadow: 0 4px 12px #0078ff4d;
 }
 
+.carousel-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+  margin-right: 2rem;
+  gap: 10px;
+}
+
 /* =========================================================
    ⬇️ BOTÃO DE ROLAR PARA BAIXO
    ========================================================= */
-@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400);
-
-.scroll-down-btn-3 {
+.scroll-down-btn {
     position: absolute; 
     bottom: 10px;
     left: 50%;
@@ -362,20 +409,21 @@ section.visible {
     transform: translateX(-50%); 
     color: var(--text-color);
     font : normal 400 20px/1 'Fira Code', monospace;
+    text-align: center;
     letter-spacing: .1em;
     text-decoration: none;
     transition: opacity .3s;
-    padding-top: 80px; 
+    padding-top: 60px; 
 }
 
 /* Define a cor do círculo, seta e pulsação com base no tema */
-.scroll-down-btn-3 span {
+.scroll-down-btn span {
     position: absolute; top: 0; left: 50%; width: 46px; height: 46px;
     margin-left: -23px; border: 1px solid var(--text-color); /* Borda com cor do texto */
     border-radius: 100%; box-sizing: border-box;
 }
 
-.scroll-down-btn-3 span::after {
+.scroll-down-btn span::after {
     position: absolute; top: 50%; left: 50%; content: '';
     width: 16px; height: 16px; margin: -12px 0 0 -8px;
     border-left: 1px solid var(--text-color); /* Seta com cor do texto */
@@ -383,13 +431,20 @@ section.visible {
     transform: rotate(-45deg); box-sizing: border-box;
 }
 
-.scroll-down-btn-3 span::before {
+.scroll-down-btn span::before {
     position: absolute; top: 0; left: 0; z-index: -1; content: '';
     width: 44px; height: 44px; 
     /* Pulsação e a cor dela */
     box-shadow: 0 0 0 0 var(--text-color); 
     border-radius: 100%; opacity: 0; 
     animation: sdb03 3s infinite; box-sizing: border-box;
+}
+
+.scroll-down-btn p {
+    margin: 0;
+    margin-top: 5px;
+    font-size: 14px;
+    color: var(--text-color);
 }
 
 /* Definição da animação de pulso */
@@ -406,4 +461,83 @@ section.visible {
     30% { opacity: 1; }
     60% { -webkit-box-shadow: 0 0 0 4px var(--text-color); opacity: 0; }
     20% { opacity: 1; }
+}
+
+/* =========================================================
+   ↔️ BOTÕES DE SETA LATERAIS DOS PROJETOS
+   ========================================================= */
+/* Configuraçoes do botao */
+.arrowbtn {
+  --btn-size: 30px;
+  --btn-arrowsize: 6px;
+
+/* Cores do botão por tema */
+  --btn-color: var(--text-color); /* Cor da seta */
+  --btn-bg: transparent; /* Fundo transparente */
+  --btn-border: var(--text-color); /* Cor da borda */
+
+/* Cores de hover */
+  --btn-hover-color: var(--bg-color); /* Cor da seta no hover (contraste do fundo) */
+  --btn-bg-hover: var(--text-color); /* Fundo no hover */
+  --btn-hover-border-color: var(--text-color); /* Borda no hover */
+}
+
+.arrowbtn {
+  position: relative;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  background: var(--btn-bg);
+  border: 2px solid var(--btn-border);
+  border-radius: 50%;
+  color: var(--btn-color);
+  cursor: pointer;
+  line-height: var(--btn-size);
+  transition: all 0.25s ease-in-out;
+  z-index: 10;
+}
+  
+.arrowbtn:hover {
+  background: var(--btn-bg-hover);
+  border-color: var(--btn-hover-border-color);
+  color: var(--btn-hover-color);
+}
+
+.arrowbtn::after {
+  position: absolute;
+  display: inline-block;
+  content: "";
+  width: var(--btn-arrowsize);
+  height: var(--btn-arrowsize);
+  top: 50%;
+  left: 50%;
+  /* A cor da borda da seta herda de 'color' no .arrowbtn ou .arrowbtn:hover */
+}
+
+.arrowbtn-left::after {
+  margin-left: calc(-1 * var(--btn-arrowsize) * 0.7); /* Centraliza horizontalmente */
+  margin-top: calc(-1 * var(--btn-arrowsize) * 0.5);
+  border-top: 2px solid;
+  border-left: 2px solid;
+  transform: rotateZ(-45deg);
+}
+
+/* Botão Direito */
+
+.arrowbtn-right::after {
+  margin-left: calc(-1 * var(--btn-arrowsize) * 0.3); /* Centraliza horizontalmente */
+  margin-top: calc(-1 * var(--btn-arrowsize) * 0.5);
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  transform: rotateZ(-45deg);
+}
+
+/* Ocultar botões em telas muito pequenas onde eles atrapalhariam a rolagem manual */
+@media (max-width: 600px) {
+    .arrowbtn {
+        display: none;
+    }
+    .project-grid {
+        /* Adicione algum padding extra em telas pequenas para não tocar nas bordas */
+        padding: 10px 5px; 
+    }
 }
