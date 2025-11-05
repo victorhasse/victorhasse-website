@@ -33,8 +33,12 @@
 /* =========================================================
    🧩 ESTILOS GERAIS
    ========================================================= */
-#home h1 {
-  margin-top: 100px;
+#home {
+  padding-top: 10rem;
+}
+
+   #home h1 {
+  margin-top: 0;
 }
 
 #dev p {
@@ -128,6 +132,38 @@ header {
   color: var(--accent-color);
 }
 
+.header-utilities {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.hide-on-mobile {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+@media (max-width: 900px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+.hide-on-desktop {
+    display: none !important;
+}
+
+/* Mostra os elementos no mobile */
+@media (max-width: 900px) {
+    #hamburger-btn.hide-on-desktop {
+        display: flex !important; 
+    }
+    #mobile-menu.hide-on-desktop {
+      display: flex !important;
+    }
+}
+
 /* ---------------------------------------------------------
    🌓 Botão de alternância de tema
    --------------------------------------------------------- */
@@ -161,11 +197,168 @@ body {
   .header-container {
     flex-direction: column;
     gap: 10px;
+    align-items: center;
   }
 
   .nav-links {
     flex-wrap: wrap;
     justify-content: center;
+  }
+}
+
+/* =========================================================
+   🍔 MENU HAMBÚRGUER (MOBILE)
+   ========================================================= */
+
+/* Estilo do botão hambúrguer */
+#hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1002;
+    margin-left: auto; /* Empurra para a direita no header */
+    align-self: center;
+    margin-top: -2px;
+}
+
+#hamburger-btn .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--header-text);
+    border-radius: 1px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* 🚀 Estilo do Painel Lateral (Off-Canvas) */
+#mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px; /* Largura do menu lateral */
+    height: 100vh;
+    background-color: var(--header-bg); /* Use o fundo do header */
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 100px 30px 30px; /* Padding top para não colidir com o header */
+    z-index: 1001;
+    
+    /* Posição inicial: oculto (deslizado para fora da tela) */
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    
+    /* Layout interno: Links + Utilitários */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+#mobile-menu.open {
+    transform: translateX(0); /* Visível */
+}
+
+/* Reajustar os elementos internos para o layout vertical */
+#mobile-menu .nav-links {
+    flex-direction: column; /* Links um abaixo do outro */
+    gap: 15px;
+}
+
+/* ---------------------------------------------------------
+   📱 Responsividade para Desktop
+   --------------------------------------------------------- */
+@media (min-width: 901px) {
+    /* No desktop, ocultamos o botão hambúrguer */
+    #hamburger-btn {
+        display: none !important;
+    }
+
+    /* E fazemos com que o menu mobile atue como a navegação desktop normal */
+    #mobile-menu {
+        position: static;
+        height: auto;
+        width: auto;
+        padding: 0;
+        box-shadow: none;
+        transform: none;
+        transition: none;
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        gap: 30px;
+    }
+
+    #mobile-menu .social-media {
+      display: none;
+    }
+    
+    #mobile-menu .nav-links {
+        flex-direction: row;
+        gap: 20px;
+    }
+}
+
+/* ---------------------------------------------------------
+   ❌ ANIMAÇÃO PARA FECHAR (CLASSE: is-active)
+   --------------------------------------------------------- */
+
+/* Barra do Meio (Desaparece) */
+#hamburger-btn.is-active .bar:nth-child(2) {
+    opacity: 0;
+    /* Move a barra para garantir que desapareça */
+    transform: translateX(-30px); 
+}
+
+/* Barra de Cima (Rotaciona e Move para o Centro) */
+#hamburger-btn.is-active .bar:nth-child(1) {
+    /* 🚀 CORREÇÃO: Move para baixo (8px, pois 25px de altura / 2 = 12.5px, e cada barra tem 3px) 
+       e rotaciona para formar a parte superior do 'X'. */
+    transform: translateY(8px) rotate(45deg); 
+}
+
+/* Barra de Baixo (Rotaciona e Move para o Centro) */
+#hamburger-btn.is-active .bar:nth-child(3) {
+    /* 🚀 CORREÇÃO: Move para cima (8px) e rotaciona para formar a parte inferior do 'X'. */
+    transform: translateY(-8px) rotate(-45deg); 
+}
+
+/* Bloqueia a rolagem do corpo quando o menu mobile está aberto (precisa da classe 'menu-open' do JS) */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* ---------------------------------------------------------
+   ✨ ESTILO DOS LINKS NO MENU MOBILE
+   --------------------------------------------------------- */
+@media (max-width: 900px){
+  #mobile-menu .nav-links {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;
+    width: 100%; 
+  }
+
+  #mobile-menu .nav-links a {
+    display: block;
+    padding: 10px 0;
+    width: 100%;
+    text-decoration: none;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  #mobile-menu .nav-links {
+    font-size: 0;
+  }
+
+  #mobile-menu .nav-links a {
+    font-size: 1.1rem;
   }
 }
 
@@ -182,9 +375,10 @@ footer {
     background-color: var(--footer-bg);
     color: var(--footer-text);
     text-align: center;
-    padding: 20px 50px;
+    padding: 30px 50px;
     font-size: 0.9rem;
     transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 -4px 6px -6px rgba(0, 0, 0, 0.2);
 }
 
 footer hr {
@@ -194,27 +388,52 @@ footer hr {
 }
 
 .footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 10px 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
+  justify-content: space-between;
+  align-items: flex-start;
+  text-align: left;
+  gap: 40px;
 }
 
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
+.footer-info-col {
+  flex: 2;
+  max-width: 55%;
+  text-align: center;
+}
+
+.footer-info-col .social-media {
   justify-content: center;
-  gap: 20px;
+  margin-top: 10px;
 }
 
-.footer-links a {
+.footer-nav-col {
+  flex: 1;
+  text-align: left;
+}
+
+.footer-links-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links-list a {
   color: var(--footer-text);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.footer-links a:hover {
+.footer-links-list a:hover {
   color: var(--accent-color);
+  text-decoration: underline;
 }
 
 .social-media {
@@ -234,8 +453,50 @@ footer hr {
   opacity: 1;
 }
 
+.footer-contacts-group {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-contacts-group p {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .footer-contacts-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* ---------------------------------------------------------
+   📱 Responsividade do Footer (Empilha Colunas)
+   --------------------------------------------------------- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Empilha as colunas verticalmente */
+        align-items: center; /* Centraliza o bloco inteiro */
+        text-align: center; /* Centraliza o texto */
+        gap: 40px;
+    }
+    
+    .footer-info-col, .footer-nav-col {
+        max-width: 100%;
+        text-align: center;
+        width: 100%;
+    }
+    
+    /* Centraliza a lista de links no mobile */
+    .footer-links-list ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 /* =========================================================
-   📜 EFEITOS GERAIS E SCROLL
+   📜 EFEITOS GERAIS E BARRA DE CIMA DE SCROLL
    ========================================================= */
 html, body {
   height: 100%;
@@ -364,9 +625,10 @@ section.visible {
   display: inline-block;
   margin-top: 0.5rem;
   padding: 0.7rem 1.3rem;
-  background: #0078ff1a;
-  color: #1d2433;
-  border: 1px solid #35373a;
+  background: var(--bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
@@ -376,10 +638,11 @@ section.visible {
 }
 
 .project-btn:hover {
-  background: #35373a;
-  color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px #0078ff4d;
+  background: var(--text-color);
+  color: var(--bg-color);
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3),
+              -2px -2px 4px rgba(255, 255, 255, 0.1);
 }
 
 .carousel-container {
@@ -540,4 +803,111 @@ section.visible {
         /* Adicione algum padding extra em telas pequenas para não tocar nas bordas */
         padding: 10px 5px; 
     }
+}
+
+/* =========================================================
+   📱 Responsividade do Padding da #Home
+   ========================================================= */
+@media (max-width: 600px) {
+    #home {
+        padding-top: 15rem; 
+    }
+}
+
+/* =========================================================
+   🌐 SELETOR DE IDIOMAS (DROPDOWN)
+   ========================================================= */
+
+/* Contêiner principal para posicionamento */
+.language-selector {
+    position: relative; /* Essencial para posicionar o dropdown menu */
+    display: inline-block;
+}
+
+/* Botão que exibe o idioma ativo */
+.lang-display-button {
+    background: var(--header-bg);
+    color: var(--header-text);
+    border: 1px solid var(--header-text);
+    padding: 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.95rem; 
+}
+
+.lang-display-button::after {
+  content: '▼';
+  font-size: 0.6rem;
+  margin-left: 8px;
+  transition: transform 0.2s;
+  line-height: 1;
+}
+
+.lang-dropdown-menu.visible + .lang-display-button::after {
+  transform: rotate(180deg);
+}
+
+.lang-display-button:hover {
+    background: #ffffff1a;
+}
+
+/* Estilo para as bandeiras */
+#current-lang-flag {
+    margin-right: 8px;
+    font-size: 1.2rem; /* Tamanho da bandeira/emoji */
+}
+
+/* Estilo para a Lista Suspensa */
+.lang-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 5px); /* 5px abaixo do botao */
+    right: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+    background-color: var(--header-bg);
+    border: 1px solid var(--text-color);
+    border-color: #ffffff33;
+    border-radius: 10px;
+    min-width: 150px;
+    z-index: 1001;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.lang-dropdown-menu.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0);
+}
+
+.lang-dropdown-menu li {
+    padding: 8px 15px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: background-color 0.2s;
+    font-weight: 400;
+}
+
+.lang-dropdown-menu li:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color); /* Texto no hover */
+}
+
+/* Remove a borda arredondada superior no primeiro item e inferior no último */
+.lang-dropdown-menu li:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.lang-dropdown-menu li:last-child {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
