@@ -121,9 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateLogo() {
         if (body.classList.contains('dark-mode')) {
-            logoImg.src = 'assets/images/logo-branco.png';
+            logoImg.src = 'assets/images/logo-branco.svg';
         } else {
-            logoImg.src = 'assets/images/logo-preto.png';
+            logoImg.src = 'assets/images/logo-preto.svg';
         }
     }
 
