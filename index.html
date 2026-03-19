@@ -1,316 +1,669 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="title_page">Victor Hasse's Website</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="icon" href="favicon.png" type="image/png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="title_page">Victor Hasse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
 </head>
+
 <body>
-    <header>
+
+  <!-- Barra de progresso de scroll -->
+  <div id="progress-bar" aria-hidden="true"></div>
+
+  <!-- Overlay de fundo do menu mobile -->
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <header>
     <div class="header-container">
-        <h1 class="logo">
-            <a href="index.html">
-                <img src="assets/images/logo-preto.svg" alt="Website logo featuring VH initials in a modern minimalist design" height="50">
-            </a>
-        </h1>
-        
-        <button id="hamburger-btn" aria-label="Menu" class="hide-on-desktop">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
 
-        <div id="mobile-menu" class="mobile-nav-panel"> 
-            
-            <div class="social-media">
-                <a href="https://github.com/victorhasse" target="_blank" aria-label="GitHub">
-                    <img src="assets/images/github.svg" alt="GitHub" height="32">
-                </a>
-                <a href="https://behance.com/victorhasse" target="_blank" aria-label="Behance">
-                    <img src="assets/images/behance.svg" alt="Behance" height="32">
-                </a>
-                <a href="https://linkedin.com/in/victorhasse" target="_blank" aria-label="LinkedIn">
-                    <img src="assets/images/linkedin.svg" alt="LinkedIn" height="32">
-                </a>
-                <a href="https://instagram.com/hassesdrawings" target="_blank" aria-label="Instagram">
-                    <img src="assets/images/instagram.svg" alt="Instagram" height="32">
-                </a>
-                <a href="mailto:victor@victorhasse.com" aria-label="Email">
-                    <img src="assets/images/email.svg" alt="Email" height="32">
-                </a>
-            </div>
-
-            <nav class="nav-links mobile-nav-links">
-                <a href="#home" class="i18n" data-i18n="nav_home">Home</a> /
-                <a href="#about" class="i18n" data-i18n="nav_about">About Me</a> /
-                <a href="#dev" class="i18n" data-i18n="nav_dev">Dev Projects</a> /
-                <a href="#design" class="i18n" data-i18n="nav_design">Design Projects</a>
-            </nav>
-            
-            <div class="header-utilities">
-                <div class="language-selector">
-                    <button id="lang-active-display" class="lang-display-button">
-                        <span id="current-lang-flag">🇧🇷</span> 
-                        <span id="current-lang-code">PT</span>
-                    </button>
-                    <ul id="lang-dropdown" class="lang-dropdown-menu">
-                        </ul>
-                </div>
-                
-                <button id="toggle-theme" title="Toggle Theme">
-                    <img id="theme-icon" src="assets/images/dia-e-noite.png" height="30" alt="Theme Icon"/>
-                </button>
-            </div>
-        </div>
-        
-      </div>
-      </header>
-
-    <div id="progress-bar"></div>
-
-    <section id="home" class="full-screen-section">
-        <h1 style="text-align: center;" class="i18n" data-i18n="home_title"></h1>
-        <h2 style="text-align: center;"> 
-            <img src="assets/images/hasse_lo-fi.gif" 
-            class="illustration-img"
-            alt="Victor's Illustration" />
-        </h2>
-        <a href="#about" class="scroll-down-btn">
-            <span></span>
-            <p class="i18n" data-i18n="scroll_down"></p>
+      <!-- Logo -->
+      <h1 class="logo">
+        <a href="index.html" aria-label="Victor Hasse — Início">
+          <img src="assets/images/logo-preto.svg" alt="Logo VH" height="36" id="site-logo" />
         </a>
-    </section>
+      </h1>
 
-    <section id="about" class="full-screen-section">
-        <h2 style="text-align: center;"><img id="img1" src="assets/images/foto de perfil.png" height="200" alt="It's a Victor's profile picture"></h2>
-        <h1 style="text-align: center;" class="i18n" data-i18n="about_title"></h1>
+      <!-- Nav links — desktop -->
+      <nav aria-label="Navegação principal">
+        <ul class="nav-links">
+          <li><a href="#home"   data-i18n="nav_home">Home</a></li>
+          <li><a href="#about"  data-i18n="nav_about">Sobre</a></li>
+          <li><a href="#dev"    data-i18n="nav_dev">Dev</a></li>
+          <li><a href="#design" data-i18n="nav_design">Design</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contato</a></li>
+        </ul>
+      </nav>
 
-        <h2 class="i18n" data-i18n="about_summary_h2"></h2>
-        <p>
-            <b class="i18n" data-i18n="about_intro_bold"></b>
-        </p>
-        <p class="i18n" data-i18n="about_intro_p"></p>
-
-        <h2 class="i18n" data-i18n="about_education_h2"></h2>
-        <p>
-            <p class="i18n" data-i18n="graphic-design"><b style="color: #6679a4;"></b><br>
-            <p class="i18n" data-i18n="computer-science"><b style="color: #6679a4;"></b><i style="color: #6679a4;"></i>
-        </p>
-
-        <h2 class="i18n" data-i18n="about_courses_h2"></h2>
-        <p>
-            <ul>
-                <li>100 Days of Code: The Complete Python Pro Bootcamp. Udemy.</li>
-                <li>The Complete Full-Stack Web Development Bootcamp. Udemy.</li>
-                <li>Java Foundations course completion from Oracle Academy.</li>
-                <li>Database Design course completion from Oracle Academy.</li>
-            </ul>
-        </p>
-
-        <h2 class="i18n" data-i18n="about_skills_h2">Skills</h2>
-        <p>
-            <ul>
-                <li class="i18n" data-i18n="skills_languages"><b style="color: #6679a4;">Programming Languages:</b></li>
-                <li class="i18n" data-i18n="skills_frameworks"><b style="color: #6679a4;">Frameworks/Libraries:</b></li>
-                <li class="i18n" data-i18n="skills_databases"><b style="color: #6679a4;">Databases:</b></li>
-                <li class="i18n" data-i18n="skills_tools"><b style="color: #6679a4;">Tools:</b></li>
-                <li class="i18n" data-i18n="skills_os"><b style="color: #6679a4;">Operating Systems:</b></li>
-                <li class="i18n" data-i18n="skills_design"><b style="color: #6679a4;">Design:</b></li>
-                <li class="i18n" data-i18n="skills_other"><b style="color: #6679a4;">Other Skills:</b></li>
-            </ul>
-        </p>
-
-        <h2 class="i18n" data-i18n="about_languages_h2">Languages</h2>
-        <p>
-            <ul>
-                <li class="i18n" data-i18n="lang_portuguese"><b style="color: #6679a4;">Portuguese:</b></li>
-                <li class="i18n" data-i18n="lang_english"><b style="color: #6679a4;">English:</b></li>
-            </ul>
-        </p>
-    </section>
-
-    <section id="dev" class="full-screen-section">
-        <h2 style="text-align: center;" class="i18n" data-i18n="dev_title">Dev Projects</h2>
-        <p style="text-align: center;" class="i18n" data-i18n="dev_subtitle"></p>
-        
-        <div class="carousel-container">
-            <div class="project-grid scrollable-projects">
-                <div class="project-card">
-                    <img src="assets/images/skyfire.png" alt="skyfire game project" class="project-img">
-                    <div class="project-info">
-                        <h3>Skyfire</h3>
-                        <p class="i18n" data-i18n="dev_skyfire_desc"></p>
-                        <p class="i18n" data-i18n="language-p1"><b>Language: </b>Godot</p>
-                        <p class="i18n" data-i18n="created-dev-p1"><b>Created in: </b>2025</p>
-                        <a href="https://github.com/victorhasse/SkyFire" target="_blank" class="project-btn i18n" data-i18n="btn_view_github"> 🔗 View on GitHub </a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <img src="assets/images/badturtles.png" alt="badturtles game project" class="project-img">
-                    <div class="project-info">
-                        <h3>BadTurtles / Labirinto</h3>
-                        <p class="i18n" data-i18n="dev_badturtles_desc"></p>
-                        <p class="i18n" data-i18n="language-p2"><b>Language: </b>Godot</p>
-                        <p class="i18n" data-i18n="created-dev-p2"><b>Created in: </b>2025</p>
-                        <a href="https://github.com/victorhasse/BadTurtle" target="_blank" class="project-btn i18n" data-i18n="btn_view_github"> 🔗 View on GitHub </a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <img src="assets/images/unisouls-temporario.png" alt="Unisouls Game Project" class="project-img">
-                    <div class="project-info">
-                        <h3>UNISOULS</h3>
-                        <p class="i18n" data-i18n="dev_unisouls_desc"></p>
-                        <p class="i18n" data-i18n="language-p3"><b>Language: </b>Godot</p>
-                        <p class="i18n" data-i18n="created-dev-p3"><b>Created in: </b>2025</p>
-                        <a href="https://github.com/lmitsuol/UNISOULS" target="_blank" class="project-btn i18n" data-i18n="btn_view_github"> 🔗 View on GitHub </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="carousel-controls">  
-                <span class="arrowbtn arrowbtn-left" onclick="scrollProjects('dev', -1)"></span>
-                <span class="arrowbtn arrowbtn-right" onclick="scrollProjects('dev', 1)"></span>
-            </div>
+      <!-- Utilitários — desktop -->
+      <div class="header-utilities">
+        <div class="lang-btns" role="group" aria-label="Idioma">
+          <button class="lang-btn" data-lang="pt">PT</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
         </div>
-    </section>
+        <button class="theme-btn" id="toggle-theme" aria-label="Alternar tema">
+          <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+          </svg>
+          <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
 
-    <section id="design" class="full-screen-section">
-        <h2 style="text-align: center;" class="i18n" data-i18n="design_title">Design Projects</h2>
-        <p style="text-align: center;" class="i18n" data-i18n="design_subtitle"></p>
+      <!-- Botão hambúrguer — mobile -->
+      <button class="hamburger-btn" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
 
-        <div class="carousel-container">
-            <div class="project-grid scrollable-projects">
-                
-                <div class="project-card">
-                    <img src="assets/images/Riders_on_the_Storm.gif" alt="rider on the storm, 2d animation" class="project-img">
-                    <div class="project-info">
-                        <h3>Rider on the Storm</h3>
-                        <p class="i18n" data-i18n="design_rider_desc"></p>
-                        <p class="i18n" data-i18n="tools-p1"><b>Tools: </b>Procreate</p>
-                        <p class="i18n" data-i18n="created-design-p1"><b>Created in: </b>2021</p>
-                        <a href="https://www.instagram.com/reel/CXUa8GsjoHI/?igsh=anRxYXVzbWdybnFn" target="_blank" class="project-btn i18n" data-i18n="btn_view_instagram"> 🔗 View on Instagram </a>
-                    </div>
-                </div>
+    </div>
+  </header>
 
-                <div class="project-card">
-                    <img src="assets/images/partiufloripalogo.jpg" alt="partiu floripa logo project" class="project-img">
-                    <div class="project-info">
-                        <h3>Partiu Floripa <br> Brand Identity</h3>
-                        <p class="i18n" data-i18n="design_partiu_desc"></p>
-                        <p class="i18n" data-i18n="tools-p2"><b>Tools: </b>Photoshop, Illustrator & Premiere Pro</p>
-                        <p class="i18n" data-i18n="created-design-p2"><b>Created in: </b>2018</p>
-                        <a href="https://www.behance.net/gallery/69614143/Canal-Partiu-Floripa" target="_blank" class="project-btn i18n" data-i18n="btn_view_behance"> 🔗 View on Behance </a>
-                    </div>
-                </div>
+  <!-- Menu mobile — off-canvas lateral -->
+  <div class="mobile-nav-panel" id="mobile-menu" role="dialog" aria-label="Menu" aria-modal="true">
+    <nav aria-label="Navegação mobile">
+      <ul class="mobile-nav-links">
+        <li><a href="#home"   data-i18n="nav_home">Home</a></li>
+        <li><a href="#about"  data-i18n="nav_about">Sobre</a></li>
+        <li><a href="#dev"    data-i18n="nav_dev">Dev</a></li>
+        <li><a href="#design" data-i18n="nav_design">Design</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contato</a></li>
+      </ul>
+    </nav>
+    <div class="mobile-utilities">
+      <div class="lang-btns" role="group" aria-label="Idioma">
+        <button class="lang-btn" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="fr">FR</button>
+      </div>
+      <button class="theme-btn" aria-label="Alternar tema" id="toggle-theme-mobile" style="align-self:flex-start">
+        <svg id="icon-sun-m" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+        </svg>
+        <svg id="icon-moon-m" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-socials">
+      <a href="https://github.com/victorhasse"       target="_blank" aria-label="GitHub">
+        <img src="assets/images/github.svg"    alt="GitHub"    height="18" /></a>
+      <a href="https://behance.com/victorhasse"      target="_blank" aria-label="Behance">
+        <img src="assets/images/behance.svg"   alt="Behance"   height="18" /></a>
+      <a href="https://linkedin.com/in/victorhasse"  target="_blank" aria-label="LinkedIn">
+        <img src="assets/images/linkedin.svg"  alt="LinkedIn"  height="18" /></a>
+      <a href="https://instagram.com/hassesdrawings"  target="_blank" aria-label="Instagram">
+        <img src="assets/images/instagram.svg" alt="Instagram" height="18" /></a>
+      <a href="mailto:victor@victorhasse.com" aria-label="Email">
+        <img src="assets/images/email.svg"     alt="Email"     height="18" /></a>
+    </div>
+  </div>
 
-                <div class="project-card">
-                    <img src="assets/images/compose-logo.png" alt="compose logo project" class="project-img">
-                    <div class="project-info">
-                        <h3>Composê <br> Brand Identity</h3>
-                        <p class="i18n" data-i18n="design_compose_desc"></p>
-                        <p class="i18n" data-i18n="tools-p3"><b>Tools: </b>Photoshop & Illustrator</p>
-                        <p class="i18n" data-i18n="created-design-p3"><b>Created in: </b>2017</p>
-                        <a href="https://www.behance.net/gallery/237625839/Compose-Brand-Identity" target="_blank" class="project-btn i18n" data-i18n="btn_view_behance"> 🔗 View on Behance </a>
-                    </div>
-                </div>
-
+  <section id="home" class="hero-section">
+ 
+    <!-- Lado esquerdo: texto -->
+    <div class="hero-left">
+ 
+      <span class="hero-eyebrow" data-i18n="hero_eyebrow">Portfólio · Design & Desenvolvimento</span>
+ 
+      <h1 class="hero-title">
+        <span class="hero-line hero-line--normal" data-i18n="hero_title_line1">Código</span>
+        <span class="hero-line hero-line--italic" data-i18n="hero_title_line2">encontra</span>
+        <span class="hero-line hero-line--normal" data-i18n="hero_title_line3">Design.</span>
+      </h1>
+ 
+      <p class="hero-desc" data-i18n="hero_desc">
+        Desenvolvedor &amp; Designer baseado no Sul do Brasil — criando experiências entre o visual e o funcional.
+      </p>
+ 
+      <div class="hero-actions">
+        <a href="#dev" class="hero-btn hero-btn--primary" data-i18n="hero_btn_projects">Ver Projetos</a>
+        <a href="mailto:victor@victorhasse.com" class="hero-btn hero-btn--ghost" data-i18n="hero_btn_contact">Contato</a>
+      </div>
+ 
+    </div>
+ 
+    <!-- Lado direito: ilustração -->
+    <div class="hero-right">
+        <div class="hero-img-wrapper">
+            <div class="hero-img-decoration"></div>
+            <div class="hero-img-frame">
+                <img
+                    src="assets/images/foto de perfil.png"
+                    alt="Victor Hasse"
+                    class="hero-img"
+                />
             </div>
-            
-            <div class="carousel-controls">
-                <span class="arrowbtn arrowbtn-left" onclick="scrollProjects('design', -1)"></span>
-                <span class="arrowbtn arrowbtn-right" onclick="scrollProjects('design', 1)"></span>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-    <div class="footer-container">
-        
-        <div class="footer-info-col">
-            <p class="i18n" data-i18n="footer_copyright">© <span id="year"></span> Designed & Developed by <b style="font-size: large;">Victor Hasse</b> — All rights reserved.</p>
-          <div class="footer-contacts-group">
-            <p class="i18n" data-i18n="footer_contacts">Contacts:</p>
-            
-            <div class="social-media">
-                <a href="https://github.com/victorhasse" target="_blank" aria-label="GitHub">
-                    <img src="assets/images/github.svg" alt="GitHub" height="48">
-                </a>
-                <a href="https://behance.com/victorhasse" target="_blank" aria-label="Behance">
-                    <img src="assets/images/behance.svg" alt="Behance" height="48">
-                </a>
-                <a href="https://linkedin.com/in/victorhasse" target="_blank" aria-label="LinkedIn">
-                    <img src="assets/images/linkedin.svg" alt="LinkedIn" height="48">
-                </a>
-                <a href="https://instagram.com/hassesdrawings" target="_blank" aria-label="Instagram">
-                    <img src="assets/images/instagram.svg" alt="Instagram" height="48">
-                </a>
-                <a href="mailto:victor@victorhasse.com" aria-label="Email">
-                    <img src="assets/images/email.svg" alt="Email" height="48">
-                </a>
-            </div>
-          </div>  
-        </div>
-
-        <div class="footer-nav-col">
-            <h3 class="i18n" data-i18n="navigation" style="margin-top: 0; color: var(--header-text);">Navigation</h3> 
-            
-            <nav class="footer-links-list">
-                <ul>
-                    <li><a href="#home" class="i18n" data-i18n="nav_home">Home</a></li>
-                    <li><a href="#about" class="i18n" data-i18n="nav_about">About Me</a></li>
-                    <li><a href="#dev" class="i18n" data-i18n="nav_dev">Dev Projects</a></li>
-                    <li><a href="#design" class="i18n" data-i18n="nav_design">Design Projects</a></li>
-                </ul>
-            </nav>
         </div>
     </div>
-    </footer>
+ 
+    <!-- Scroll hint -->
+    <a href="#about" class="hero-scroll" aria-label="Scroll para próxima seção">
+      <span class="hero-scroll__line"></span>
+      <span class="hero-scroll__label" data-i18n="scroll_down">Rolar para Baixo</span>
+    </a>
+ 
+  </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="assets/js/translations.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script>
-        // Lógica JQuery de Rolagem Suave
-        $(function() {
-            $('a[href*=#]').on('click', function(e) {
-                e.preventDefault();
-                $('html, body').animate({ 
-                    scrollTop: $($(this).attr('href')).offset().top
-                }, 500, 'linear');
-            });
-        });
-        
-        // Atualiza o ano no rodapé automaticamente
-        document.getElementById("year").textContent = new Date().getFullYear();
-        
-        // Scroll barra de progresso
-        window.addEventListener("scroll", () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.body.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            document.getElementById("progress-bar").style.width = scrollPercent + "%";
-        });
+ <!-- =====================================================
+       SEÇÃO ABOUT
+       ===================================================== -->
+  <section id="about" class="about-section">
 
-        // Animação de entrada nas seções
-        const observer = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                }
-            });
-        },
-        { threshold: 0.2 }
-        );
+    <!-- Cabeçalho da seção -->
+    <div class="sec-header">
+      <div>
+        <p class="sec-label" data-i18n="about_summary_h2">Resumo</p>
+        <h2 class="sec-title" data-i18n="about_title">Sobre Mim</h2>
+      </div>
+    </div>
 
-        document.querySelectorAll("section").forEach(section => {
-            observer.observe(section);
-        });
+    <!-- Grid principal: bio + gif | skills -->
+    <div class="about-grid">
 
-    </script>      
+      <!-- Coluna esquerda -->
+      <div class="about-left">
+
+        <!-- Bio -->
+        <p class="about-intro">
+          <strong data-i18n="about_intro_bold">Olá! Meu nome é Victor Hasse.</strong>
+        </p>
+        <p class="about-body" data-i18n="about_intro_p"></p>
+
+        <!-- Cards de papel: Developer / Designer / Game Dev -->
+        <div class="about-roles">
+          <div class="role-card">
+            <span class="role-card__icon">💻</span>
+            <span class="role-card__title">Developer</span>
+            <span class="role-card__desc">Python · Java · JavaScript · HTML / CSS</span>
+          </div>
+          <div class="role-card">
+            <span class="role-card__icon">🎨</span>
+            <span class="role-card__title">Designer</span>
+            <span class="role-card__desc">Illustrator · Photoshop · Procreate · UI / UX</span>
+          </div>
+          <div class="role-card">
+            <span class="role-card__icon">🎮</span>
+            <span class="role-card__title">Game Dev</span>
+            <span class="role-card__desc">Godot 4 · Game Design · 2D Art</span>
+          </div>
+        </div>
+
+        <!-- Gif lo-fi decorativo -->
+        <div class="about-gif-wrapper">
+          <img
+            src="assets/images/hasse_lo-fi.gif"
+            alt="Victor Hasse lo-fi illustration"
+            class="about-gif"
+          />
+        </div>
+
+      </div>
+
+      <!-- Coluna direita -->
+      <div class="about-right">
+
+        <!-- Skills como pills -->
+        <div class="about-block">
+          <h3 class="about-block__title" data-i18n="about_skills_h2">Habilidades</h3>
+          <div class="skills-pills">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Java</span>
+            <span class="skill-pill">GDScript</span>
+            <span class="skill-pill">HTML / CSS</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">TypeScript</span>
+            <span class="skill-pill">React</span>
+            <span class="skill-pill">Bootstrap</span>
+            <span class="skill-pill">MySQL</span>
+            <span class="skill-pill">SQLite</span>
+            <span class="skill-pill">Git / GitHub</span>
+            <span class="skill-pill">Godot 4</span>
+            <span class="skill-pill">Figma</span>
+            <span class="skill-pill">Illustrator</span>
+            <span class="skill-pill">Photoshop</span>
+            <span class="skill-pill">Premiere Pro</span>
+            <span class="skill-pill">Procreate</span>
+            <span class="skill-pill">MacOS</span>
+            <span class="skill-pill">UI / UX</span>
+          </div>
+        </div>
+
+        <!-- Idiomas -->
+        <div class="about-block">
+          <h3 class="about-block__title" data-i18n="about_languages_h2">Idiomas</h3>
+          <div class="lang-list">
+            <div class="lang-item">
+              <span class="lang-item__flag">🇧🇷</span>
+              <span class="lang-item__name" data-i18n="lang_pt_name">Português</span>
+              <span class="lang-item__level" data-i18n="lang_pt_level">Nativo</span>
+            </div>
+            <div class="lang-item">
+              <span class="lang-item__flag">🇺🇸</span>
+              <span class="lang-item__name" data-i18n="lang_en_name">Inglês</span>
+              <span class="lang-item__level">B2 — CEFR</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Educação -->
+        <div class="about-block">
+          <h3 class="about-block__title" data-i18n="about_education_h2">Educação</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="timeline-item__year">2024 —</span>
+              <div class="timeline-item__body">
+                <strong class="timeline-item__degree" data-i18n="tl_cs_degree">Ciência da Computação</strong>
+                <span class="timeline-item__school">UNISUL · Florianópolis</span>
+                <span class="timeline-item__status" data-i18n="tl_in_progress">em andamento</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <span class="timeline-item__year">2014 – 2018</span>
+              <div class="timeline-item__body">
+                <strong class="timeline-item__degree" data-i18n="tl_gd_degree">Design Gráfico</strong>
+                <span class="timeline-item__school">UNIVALI · Florianópolis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cursos -->
+        <div class="about-block">
+          <h3 class="about-block__title" data-i18n="about_courses_h2">Cursos e Certificações</h3>
+          <ul class="courses-list">
+            <li>100 Days of Code: The Complete Python Pro Bootcamp — Udemy</li>
+            <li>The Complete Full-Stack Web Development Bootcamp — Udemy</li>
+            <li>Java Foundations — Oracle Academy</li>
+            <li>Database Design — Oracle Academy</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- =====================================================
+       SEÇÃO DEV — GitHub API
+       ===================================================== -->
+  <section id="dev" class="dev-section">
+
+    <div class="sec-header">
+      <div>
+        <p class="sec-label" data-i18n="dev_label">Desenvolvimento</p>
+        <h2 class="sec-title" data-i18n="dev_title">Dev Projects</h2>
+      </div>
+      <a
+        href="https://github.com/victorhasse"
+        target="_blank"
+        class="sec-link"
+        data-i18n="dev_github_link"
+      >Ver todos no GitHub →</a>
+    </div>
+
+    <p class="dev-subtitle" data-i18n="dev_subtitle"></p>
+
+    <!-- Estado: carregando -->
+    <div class="dev-loading" id="dev-loading" aria-live="polite">
+      <span class="dev-loading__dot"></span>
+      <span class="dev-loading__dot"></span>
+      <span class="dev-loading__dot"></span>
+    </div>
+
+    <!-- Estado: erro -->
+    <div class="dev-error" id="dev-error" style="display:none">
+      <p data-i18n="dev_error">Não foi possível carregar os repositórios. Tente novamente.</p>
+      <button class="dev-retry-btn" id="dev-retry" data-i18n="dev_retry">Tentar novamente</button>
+    </div>
+
+    <!-- Grid de cards -->
+    <div class="dev-grid" id="dev-grid" style="display:none"></div>
+
+    <!-- Botão ver mais -->
+    <div class="dev-more-wrapper" id="dev-more-wrapper" style="display:none">
+      <button class="dev-more-btn" id="dev-more-btn" data-i18n="dev_show_more">
+        Ver mais projetos
+      </button>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SEÇÃO DESIGN — galeria com hover overlay
+       ===================================================== -->
+  <section id="design" class="design-section">
+
+    <div class="sec-header">
+      <div>
+        <p class="sec-label" data-i18n="design_label">Criação Visual</p>
+        <h2 class="sec-title" data-i18n="design_title">Design Projects</h2>
+      </div>
+      <a
+        href="https://behance.com/victorhasse"
+        target="_blank"
+        class="sec-link"
+        data-i18n="design_behance_link"
+      >Ver no Behance →</a>
+    </div>
+
+    <p class="design-subtitle" data-i18n="design_subtitle"></p>
+
+    <div class="design-grid">
+
+      <!-- Card 1 — Rider on the Storm (grande, ocupa 2 linhas) -->
+      <a
+        href="https://www.instagram.com/reel/CXUa8GsjoHI/?igsh=anRxYXVzbWdybnFn"
+        target="_blank"
+        class="design-card design-card--tall"
+        aria-label="Rider on the Storm"
+      >
+        <img
+          src="assets/images/Riders_on_the_Storm.gif"
+          alt="Rider on the Storm — 2D animation"
+          class="design-card__img"
+          loading="lazy"
+          style="object-position: 50% 30%;"
+        />
+        <div class="design-card__overlay">
+          <div class="design-card__info">
+            <div class="design-card__tags">
+              <span class="design-card__tag">Procreate</span>
+              <span class="design-card__tag">2D Animation</span>
+              <span class="design-card__tag">2021</span>
+            </div>
+            <h3 class="design-card__title">Rider on the Storm</h3>
+            <p class="design-card__desc" data-i18n="design_rider_desc"></p>
+            <span class="design-card__link" data-i18n="design_view_instagram">Ver no Instagram ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 2 — Partiu Floripa -->
+      <a
+        href="https://www.behance.net/gallery/69614143/Canal-Partiu-Floripa"
+        target="_blank"
+        class="design-card"
+        aria-label="Partiu Floripa Brand Identity"
+      >
+        <img
+          src="assets/images/partiufloripalogo.jpg"
+          alt="Partiu Floripa Brand Identity"
+          class="design-card__img"
+          loading="lazy"
+        />
+        <div class="design-card__overlay">
+          <div class="design-card__info">
+            <div class="design-card__tags">
+              <span class="design-card__tag">Photoshop</span>
+              <span class="design-card__tag">Illustrator</span>
+              <span class="design-card__tag">2018</span>
+            </div>
+            <h3 class="design-card__title">Partiu Floripa</h3>
+            <p class="design-card__desc" data-i18n="design_partiu_desc"></p>
+            <span class="design-card__link" data-i18n="design_view_behance">Ver no Behance ↗</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Card 3 — Composê Brand Identity -->
+      <a
+        href="https://www.behance.net/gallery/237625839/Compose-Brand-Identity"
+        target="_blank"
+        class="design-card"
+        aria-label="Composê Brand Identity"
+      >
+        <img
+          src="assets/images/compose-logo.png"
+          alt="Composê Brand Identity"
+          class="design-card__img"
+          loading="lazy"
+        />
+        <div class="design-card__overlay">
+          <div class="design-card__info">
+            <div class="design-card__tags">
+              <span class="design-card__tag">Photoshop</span>
+              <span class="design-card__tag">Illustrator</span>
+              <span class="design-card__tag">2017</span>
+            </div>
+            <h3 class="design-card__title">Composê Brand Identity</h3>
+            <p class="design-card__desc" data-i18n="design_compose_desc"></p>
+            <span class="design-card__link" data-i18n="design_view_behance">Ver no Behance ↗</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SEÇÃO CONTATO
+       ===================================================== -->
+  <section id="contact" class="contact-section">
+
+    <div class="sec-header">
+      <div>
+        <p class="sec-label" data-i18n="contact_label">Contato</p>
+        <h2 class="sec-title" data-i18n="contact_title">Vamos trabalhar juntos?</h2>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Lado esquerdo: frase + e-mail direto -->
+      <div class="contact-left">
+        <p class="contact-desc" data-i18n="contact_desc">
+          Estou disponível para estágios, freelas e colaborações. Se você tem um projeto interessante ou uma oportunidade, me manda uma mensagem!
+        </p>
+
+        <a href="mailto:victor@victorhasse.com" class="contact-email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+          victor@victorhasse.com
+        </a>
+
+        <p class="contact-or" data-i18n="contact_or">ou preencha o formulário ao lado</p>
+
+        <!-- Disponibilidade -->
+        <div class="contact-availability">
+          <span class="contact-availability__dot"></span>
+          <span data-i18n="contact_available">Disponível para novas oportunidades</span>
+        </div>
+      </div>
+
+      <!-- Lado direito: formulário via Formspree -->
+      <div class="contact-right">
+        <form
+          class="contact-form"
+          id="contact-form"
+          action="https://formspree.io/f/xeervygj"
+          method="POST"
+        >
+          <div class="contact-form__row">
+            <div class="contact-form__field">
+              <label for="contact-name" data-i18n="contact_field_name">Nome</label>
+              <input
+                type="text"
+                id="contact-name"
+                name="name"
+                required
+                autocomplete="name"
+                data-i18n-placeholder="contact_placeholder_name"
+                placeholder="Seu nome"
+              />
+            </div>
+            <div class="contact-form__field">
+              <label for="contact-email" data-i18n="contact_field_email">E-mail</label>
+              <input
+                type="email"
+                id="contact-email"
+                name="email"
+                required
+                autocomplete="email"
+                data-i18n-placeholder="contact_placeholder_email"
+                placeholder="seu@email.com"
+              />
+            </div>
+          </div>
+
+          <div class="contact-form__field">
+            <label for="contact-subject" data-i18n="contact_field_subject">Assunto</label>
+            <input
+              type="text"
+              id="contact-subject"
+              name="subject"
+              required
+              data-i18n-placeholder="contact_placeholder_subject"
+              placeholder="Do que se trata?"
+            />
+          </div>
+
+          <div class="contact-form__field">
+            <label for="contact-message" data-i18n="contact_field_message">Mensagem</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows="5"
+              required
+              data-i18n-placeholder="contact_placeholder_message"
+              placeholder="Conte um pouco sobre o projeto ou oportunidade..."
+            ></textarea>
+          </div>
+
+          <!-- Honeypot anti-spam -->
+          <input type="text" name="_gotcha" style="display:none" />
+
+          <button type="submit" class="contact-submit" id="contact-submit">
+            <span class="contact-submit__text" data-i18n="contact_send">Enviar mensagem</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/>
+            </svg>
+          </button>
+
+          <!-- Feedback de sucesso/erro -->
+          <div class="contact-feedback" id="contact-feedback" style="display:none"></div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer class="site-footer">
+
+    <!-- Frase -->
+    <div class="footer-cta">
+      <p class="footer-cta__label" data-i18n="footer_cta_label">Pronto para começar?</p>
+      <h2 class="footer-cta__title" data-i18n="footer_cta_title">Vamos criar algo <em>incrível</em> juntos.</h2>
+      <a href="#contact" class="footer-cta__btn" data-i18n="footer_cta_btn">Entrar em contato</a>
+    </div>
+
+    <hr class="footer-divider" />
+
+    <!-- Rodapé inferior: 3 colunas -->
+    <div class="footer-bottom">
+
+      <!-- Coluna 1: info -->
+      <div class="footer-col">
+        <a href="#home" class="footer-logo" aria-label="Voltar ao início">
+          <img src="assets/images/logo-preto.svg" alt="VH" height="28" id="footer-logo" />
+        </a>
+        <p class="footer-copy" data-i18n="footer_copyright">
+          © <span id="year"></span> Victor Hasse — All rights reserved.
+        </p>
+        <p class="footer-made" data-i18n="footer_made">
+          Designed & developed by Victor Hasse.
+        </p>
+      </div>
+
+      <!-- Coluna 2: navegação -->
+      <div class="footer-col">
+        <p class="footer-col__title" data-i18n="navigation">Navegação</p>
+        <nav>
+          <ul class="footer-nav-list">
+            <li><a href="#home"    data-i18n="nav_home">Início</a></li>
+            <li><a href="#about"   data-i18n="nav_about">Sobre</a></li>
+            <li><a href="#dev"     data-i18n="nav_dev">Dev</a></li>
+            <li><a href="#design"  data-i18n="nav_design">Design</a></li>
+            <li><a href="#contact" data-i18n="nav_contact">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Coluna 3: redes sociais -->
+      <div class="footer-col">
+        <p class="footer-col__title" data-i18n="footer_contacts">Contatos</p>
+        <div class="footer-socials">
+          <a href="https://github.com/victorhasse"      target="_blank" aria-label="GitHub"    class="footer-social-btn">
+            <img src="assets/images/github.svg"    alt="GitHub"    />
+            <span>GitHub</span>
+          </a>
+          <a href="https://behance.com/victorhasse"     target="_blank" aria-label="Behance"   class="footer-social-btn">
+            <img src="assets/images/behance.svg"   alt="Behance"   />
+            <span>Behance</span>
+          </a>
+          <a href="https://linkedin.com/in/victorhasse" target="_blank" aria-label="LinkedIn"  class="footer-social-btn">
+            <img src="assets/images/linkedin.svg"  alt="LinkedIn"  />
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://instagram.com/hassesdrawings" target="_blank" aria-label="Instagram" class="footer-social-btn">
+            <img src="assets/images/instagram.svg" alt="Instagram" />
+            <span>Instagram</span>
+          </a>
+          <a href="mailto:victor@victorhasse.com" aria-label="Email" class="footer-social-btn">
+            <img src="assets/images/email.svg"     alt="Email"     />
+            <span>E-mail</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="assets/js/translations.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script>
+    // Rolagem suave via jQuery
+    $(function() {
+      $('a[href*=#]').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({
+          scrollTop: $($(this).attr('href')).offset().top
+        }, 500, 'linear');
+      });
+    });
+
+    // Animação de entrada nas seções
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('section').forEach(s => sectionObserver.observe(s));
+  </script>
+
 </body>
 </html>
