@@ -1,79 +1,141 @@
-# 🌐 Victor Hasse's Website
+<div align="center">
 
-[![GitHub Pages](https://img.shields.io/badge/Deploy-GitHub%20Pages-blue?style=for-the-badge&logo=github)](https://victorhasse.github.io/victorhasse-website)
-[![Licença](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE) 
-> **🇺🇸 EN:** My first personal website, created to showcase my portfolio, projects, and personal information in a modern and responsive way.
->
-> **🇧🇷 BR:** Meu primeiro website pessoal, criado para apresentar meu portfólio, projetos e informações pessoais de forma moderna e responsiva.
+**[🇧🇷 Português](#português) · [🇺🇸 English](#english)**
+
+</div>
 
 ---
 
-## 🔗 Website Link / Acessar o Projeto
+<div id="português">
 
-> **🇺🇸 EN:** You can access the website here:
->
-> **🇧🇷 BR:** Você pode acessar o site online através do link abaixo:
+# victorhasse.com
 
-**[Acesse o Website Aqui →](https://victorhasse.github.io/victorhasse-website)**
+Portfólio pessoal — desenvolvido por **Victor Hasse**.
 
----
-
-## 🛠 Tools & Technologies / Tecnologias Utilizadas
-
-> **🇺🇸 EN:** This project was built with the following tools and languages:
->
-> **🇧🇷 BR:** Este projeto foi construído com as seguintes ferramentas e linguagens:
-
-| Category | Tool / Ferramenta |
-| :--- | :--- |
-| **Languages** | <img alt="HTML5" src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white"> <img alt="CSS3" src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white"> <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"> |
-| **IDE** | <img alt="VS Code" src="https://img.shields.io/badge/VS%20Code-007ACC?style=flat-square&logo=visual-studio-code&logoColor=white"> |
----
-
-## ✨ Features / Funcionalidades
-
-> **🇺🇸 EN:** The website has the following sections and features:
->
-> **🇧🇷 BR:** O site inclui as seguintes seções e recursos:
-
-* **🇺🇸** Home page with about me, brief introduction, and highlights.
-* **🇧🇷** Página Inicial com apresentação pessoal, breve introdução e informações de destaque.
->
-* **🇺🇸** Gallery to showcase the project portfolio.
-* **🇧🇷** Galeria para exibir o portfólio de projetos.
->
-* **🇺🇸** Contact methods and social links.
-* **🇧🇷** Formas de contato e links sociais.
+**[→ Acesse em victorhasse.com](https://victorhasse.com)**
 
 ---
 
-## 📸 Screenshots
+## Sobre
 
-Aqui estão algumas capturas de tela do design e layout do website:
+Um portfólio pessoal responsivo e multilíngue, construído com HTML, CSS e JavaScript puro — sem frameworks, sem ferramentas de build. Hospedado no GitHub Pages.
 
-| Dark Mode | Light Mode |
-| :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/4809db77-d6dc-466f-a11d-6b08a814d293" alt="Captura de Tela 1" width="450"/> | <img src="https://github.com/user-attachments/assets/3ddbd7e6-d30f-491b-bc2c-68968121157a" alt="Captura de Tela 2" width="450"/> |
+Apresenta projetos de desenvolvimento (carregados dinamicamente via GitHub API), projetos de design, habilidades e um formulário de contato.
 
 ---
 
-## 🗺 Future Goals / Próximos Passos
+## Funcionalidades
 
-O projeto será continuamente atualizado com:
+- **5 idiomas** — PT, EN, ES, DE, FR (sistema de i18n customizado)
+- **Tema claro / escuro** — respeita a preferência do sistema, persiste via localStorage
+- **Integração com GitHub API** — seção de projetos dev carrega repositórios dinamicamente
+- **Formulário de contato** — via Formspree, sem necessidade de backend
+- **Totalmente responsivo** — layout mobile-first com navegação off-canvas
+- **Barra de progresso de scroll** — linha de destaque no topo da página
+- **Animações com Intersection Observer** — seções aparecem suavemente ao rolar
 
-* **Novas funcionalidades:** Troca de idioma (inglês e português).
-* **Novos projetos:** O portfólio será expandido com trabalhos futuros.
-* *(The project will be continuously updated with new features and expanded with future projects in the portfolio.)*
+---
+
+## Stack
+
+| Camada | Tecnologia |
+|---|---|
+| Marcação | HTML5 |
+| Estilos | CSS3 (custom properties, grid, flexbox) |
+| Scripts | JavaScript Vanilla (ES6+) |
+| Fontes | DM Sans + JetBrains Mono (Google Fonts) |
+| Formulário | Formspree |
+| Hospedagem | GitHub Pages |
 
 ---
 
-## ✉️ Get in Touch / Contato
+## Estrutura do Projeto
 
-> **🇺🇸 EN:** Feel free to connect or get in touch:
->
-> **🇧🇷 BR:** Sinta-se à vontade para se conectar ou entrar em contato:
-
-* **LinkedIn:** [victor's linkedin](https://linktr.ee/victorhasse)
-* **E-mail:** [click here to send an email to victor](mailto:victorhasse@gmail.com)
+```
+victorhasse-website/
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── images/
+│   └── js/
+│       ├── script.js
+│       └── translations.js
+├── favicon.png
+└── index.html
+```
 
 ---
+
+## Licença
+
+© 2025 Victor Hasse — Todos os direitos reservados.
+
+</div>
+
+---
+
+<div id="english">
+
+# victorhasse.com
+
+Personal portfolio — designed and developed by **Victor Hasse**.
+
+**[→ Live at victorhasse.com](https://victorhasse.com)**
+
+---
+
+## About
+
+A responsive, multilingual personal portfolio built with vanilla HTML, CSS and JavaScript — no frameworks, no build tools. Hosted on GitHub Pages.
+
+Showcases dev projects (pulled live from the GitHub API), design work, skills, and a contact form.
+
+---
+
+## Features
+
+- **5 languages** — PT, EN, ES, DE, FR (via custom i18n system)
+- **Light / Dark theme** — respects system preference, persists via localStorage
+- **GitHub API integration** — dev projects section loads repositories dynamically
+- **Contact form** — powered by Formspree, no backend needed
+- **Fully responsive** — mobile-first layout with off-canvas nav
+- **Scroll progress bar** — thin accent line at the top
+- **Intersection Observer animations** — sections fade in on scroll
+
+---
+
+## Stack
+
+| Layer | Tech |
+|---|---|
+| Markup | HTML5 |
+| Styles | CSS3 (custom properties, grid, flexbox) |
+| Scripts | Vanilla JavaScript (ES6+) |
+| Fonts | DM Sans + JetBrains Mono (Google Fonts) |
+| Form | Formspree |
+| Hosting | GitHub Pages |
+
+---
+
+## Project Structure
+
+```
+victorhasse-website/
+├── assets/
+│   ├── css/
+│   │   └── style.css
+│   ├── images/
+│   └── js/
+│       ├── script.js
+│       └── translations.js
+├── favicon.png
+└── index.html
+```
+
+---
+
+## License
+
+© 2025 Victor Hasse — All rights reserved.
+
+</div>
