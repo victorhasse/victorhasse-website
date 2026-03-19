@@ -1,8 +1,14 @@
 # Ignora arquivos de configuração do VS Code
-*.vscode/
+.vscode/
 
 # Ignora metadados do macOS
-*.DS_Store
+.DS_Store
 
 # Ignora a pasta de pacotes do Node
-*node_modules/
+node_modules/
+
+# Ignora metadados do Windows
+Thumbs.db
+
+# Ignora logs
+*.log
