@@ -70,6 +70,12 @@ const CARDS_PER_PAGE = 6;
 let allRepos         = [];
 let visibleCount     = CARDS_PER_PAGE;
 
+// Repos de colab que quero exibir manualmente
+const COLLAB_REPOS = [
+  'lmitsuol/UNISOULS',
+  // adicionar outros repos aqui futuramente se eu precisar
+];
+
 const LANG_COLORS = {
   'GDScript':   'lang-godot',
   'Godot':      'lang-godot',
@@ -96,6 +102,9 @@ function buildCard(repo) {
   const langClass = LANG_COLORS[repo.language] || 'lang-default';
   const desc      = repo.description || '—';
   const date      = formatDate(repo.pushed_at);
+  const collabBadge = repo._isCollab
+    ? `<span class="dev-card__collab-badge">colab</span>`
+    : '';
 
   const topicsHTML = (repo.topics && repo.topics.length)
     ? repo.topics.slice(0, 4).map(t =>
@@ -119,7 +128,7 @@ function buildCard(repo) {
       aria-label="${repo.name}"
     >
       <div class="dev-card__header">
-        <span class="dev-card__name">${repo.name}</span>
+        <span class="dev-card__name">${repo.name} ${collabBadge}</span>
         <svg class="dev-card__arrow" viewBox="0 0 16 16" fill="none"
              stroke="currentColor" stroke-width="1.5"
              stroke-linecap="round" stroke-linejoin="round">
@@ -161,18 +170,36 @@ async function fetchRepos() {
   grid.style.display    = 'none';
 
   try {
-    const res = await fetch(
+    // 1. Meus próprios repos
+    const ownRes = await fetch(
       `https://api.github.com/users/${GITHUB_USER}/repos?sort=pushed&per_page=100`,
       { headers: { 'Accept': 'application/vnd.github.mercy-preview+json' } }
     );
+    if (!ownRes.ok) throw new Error(`HTTP ${ownRes.status}`);
+    const ownData = await ownRes.json();
 
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    // 2. Repos de colab hardcodados
+    const collabResults = await Promise.all(
+      COLLAB_REPOS.map(async (repoName) => {
+        const res = await fetch(
+          `https://api.github.com/repos/${repoName}`,
+          { headers: { 'Accept': 'application/vnd.github.mercy-preview+json' } }
+        );
+        if (!res.ok) return null;
+        const data = await res.json();
+        return { ...data, _isCollab: true };
+      })
+    );
 
-    const data = await res.json();
+    const collabRepos = collabResults.filter(Boolean);
 
-    allRepos = data
-      .filter(r => !r.fork)
-      .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+    // 3. Junta e ordena por data
+    const combined = [
+      ...ownData.filter(r => !r.fork), // meus repos (sem forks simples)
+      ...collabRepos                   // repos de colaboração
+    ];
+
+    allRepos = combined.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
 
     loading.style.display = 'none';
     grid.style.display    = 'grid';
@@ -320,8 +347,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ============================================================
-// SEÇÃO CONTATO — Formspree + feedback + placeholders i18n
-// ============================================================
+  // SEÇÃO CONTATO — Formspree + feedback + placeholders i18n
+  // ============================================================
 
   // ----------------------------------------------------------
   // G. FORMULÁRIO DE CONTATO
