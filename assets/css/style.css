@@ -42,7 +42,7 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', 'Inter', system-ui, sans-serif;
+  font-family: 'DM Sans', 'Noto Sans JP', 'Inter', system-ui, sans-serif;
   background-color: var(--bg);
   color: var(--ink);
   line-height: 1.6;
