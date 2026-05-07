@@ -1205,6 +1205,10 @@ section.visible {
   color: var(--ink);
   line-height: 1.3;
   word-break: break-word;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* controla a distância entre o nome dos repos e os badges */
+  flex-wrap: wrap;
 }
 
 .dev-card__arrow {
@@ -1220,11 +1224,24 @@ section.visible {
   transform: translate(2px, -2px);
 }
 
+/* Badge de colaboração */
 .dev-card__collab-badge {
   font-size: 0.65rem;
   padding: 2px 6px;
   border-radius: 999px;
   background: var(--accent, #7c3aed);
+  color: #fff;
+  vertical-align: middle;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* Badge de fork  */
+.dev-card__fork-badge {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background:#ee4a4f;
   color: #fff;
   vertical-align: middle;
   font-weight: 600;
@@ -1239,9 +1256,15 @@ section.visible {
   flex: 1;
   margin-bottom: 1.25rem;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.dev-card__collab-badge,
+.dev-card__fork-badge {
+  margin-left: 0; 
+  white-space: nowrap; /* Impede que a palavra 'colab' ou 'fork' quebre no meio */
 }
 
 /* Tópicos/tags */
@@ -1347,6 +1370,12 @@ section.visible {
 .lang-java         { background: #b07219; }
 .lang-csharp       { background: #178600; }
 .lang-cpp          { background: #f34b7d; }
+.lang-c            { background: #555555; }
+.lang-go           { background: #00ADD8; }
+.lang-rust         { background: #dea584; }
+.lang-dart         { background: #00B4D8; }
+.lang-kotlin       { background: #7F52FF; }
+.lang-swift        { background: #FFAC45; }
 .lang-default      { background: var(--ink3); }
 
 /* ---------------------------------------------------------
@@ -1517,13 +1546,13 @@ section.visible {
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.7);
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .design-card--tall .design-card__desc {
-  -webkit-line-clamp: 4;
+  line-clamp: 4;
 }
 
 /* Link */

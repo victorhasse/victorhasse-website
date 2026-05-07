@@ -73,7 +73,13 @@ let visibleCount     = CARDS_PER_PAGE;
 // Repos de colab que quero exibir manualmente
 const COLLAB_REPOS = [
   'lmitsuol/UNISOULS',
-  // adicionar outros repos aqui futuramente se eu precisar
+  // adicionar outros repos collab aqui futuramente, se eu precisar
+];
+
+  // Repos forkados que quero exibir manualmente
+const FORKS_REPOS = [
+  'victorhasse/UNISOULS', 
+  // adicionar outros repos forkados aqui futuramente, se eu precisar
 ];
 
 const LANG_COLORS = {
@@ -87,6 +93,12 @@ const LANG_COLORS = {
   'Java':       'lang-java',
   'C#':         'lang-csharp',
   'C++':        'lang-cpp',
+  'C':          'lang-c',
+  'Go':         'lang-go',
+  'Rust':       'lang-rust',
+  'Dart':       'lang-dart',
+  'Kotlin':     'lang-kotlin',
+  'Swift':      'lang-swift',
 };
 
 function formatDate(isoString) {
@@ -102,9 +114,8 @@ function buildCard(repo) {
   const langClass = LANG_COLORS[repo.language] || 'lang-default';
   const desc      = repo.description || '—';
   const date      = formatDate(repo.pushed_at);
-  const collabBadge = repo._isCollab
-    ? `<span class="dev-card__collab-badge">colab</span>`
-    : '';
+  const collabBadge = repo._isCollab ? `<span class="dev-card__collab-badge">colab</span>` : '';
+  const forkBadge   = repo.fork ? `<span class="dev-card__fork-badge">fork</span>` : '';
 
   const topicsHTML = (repo.topics && repo.topics.length)
     ? repo.topics.slice(0, 4).map(t =>
@@ -128,7 +139,7 @@ function buildCard(repo) {
       aria-label="${repo.name}"
     >
       <div class="dev-card__header">
-        <span class="dev-card__name">${repo.name} ${collabBadge}</span>
+        <span class="dev-card__name">${repo.name}${collabBadge}${forkBadge}</span>
         <svg class="dev-card__arrow" viewBox="0 0 16 16" fill="none"
              stroke="currentColor" stroke-width="1.5"
              stroke-linecap="round" stroke-linejoin="round">
@@ -195,8 +206,11 @@ async function fetchRepos() {
 
     // 3. Junta e ordena por data
     const combined = [
-      ...ownData.filter(r => !r.fork), // meus repos (sem forks simples)
-      ...collabRepos                   // repos de colaboração
+      ...ownData.filter(r => {
+        if (!r.fork) return true;       // repos originais: exibe todos
+        return FORKS_REPOS.includes(r.full_name); 
+      }),                               // inclui forks se estiverem na lista FORKS_REPOS
+      ...collabRepos,                   // repos de colaboração
     ];
 
     allRepos = combined.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
