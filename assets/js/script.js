@@ -73,12 +73,14 @@ let visibleCount     = CARDS_PER_PAGE;
 // Repos de colab que quero exibir manualmente
 const COLLAB_REPOS = [
   'lmitsuol/UNISOULS',
+  'IgorMirandolli/backend_patriquefitness',
   // adicionar outros repos collab aqui futuramente, se eu precisar
 ];
 
   // Repos forkados que quero exibir manualmente
 const FORKS_REPOS = [
-  'victorhasse/UNISOULS', 
+  'victorhasse/UNISOULS',
+  'victorhasse/backend_patrique_app',
   // adicionar outros repos forkados aqui futuramente, se eu precisar
 ];
 
@@ -114,7 +116,7 @@ function buildCard(repo) {
   const langClass = LANG_COLORS[repo.language] || 'lang-default';
   const desc      = repo.description || '—';
   const date      = formatDate(repo.pushed_at);
-  const collabBadge = repo._isCollab ? `<span class="dev-card__collab-badge">colab</span>` : '';
+  const collabBadge = repo._isCollab ? `<span class="dev-card__collab-badge">collab</span>` : '';
   const forkBadge   = repo.fork ? `<span class="dev-card__fork-badge">fork</span>` : '';
 
   const topicsHTML = (repo.topics && repo.topics.length)
