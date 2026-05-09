@@ -267,22 +267,86 @@ document.addEventListener('DOMContentLoaded', () => {
   const supportedLangs = Object.keys(translations);
   const defaultLang    = 'pt';
 
+  // Flags para o dropdown desktop
+  const langFlags = {
+    pt: '🇧🇷', en: '🇺🇸', es: '🇪🇸',
+    de: '🇩🇪', fr: '🇫🇷', it: '🇮🇹', ja: '🇯🇵'
+  };
+
   function setLang(lang) {
     if (!supportedLangs.includes(lang)) lang = defaultLang;
     localStorage.setItem('lang', lang);
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
-    });
-    translatePage(lang);
-  }
 
-  document.addEventListener('click', e => {
-    if (e.target.classList.contains('lang-btn')) {
-      setLang(e.target.dataset.lang);
-    }
+  // Atualiza botão do dropdown desktop
+  const flagEl = document.getElementById('lang-selector-flag');
+  const codeEl = document.getElementById('lang-selector-code');
+  if (flagEl) flagEl.textContent = langFlags[lang] || '';
+  if (codeEl) codeEl.textContent = lang.toUpperCase();
+
+  // Marca opção ativa no dropdown
+  document.querySelectorAll('.lang-selector__option').forEach(opt => {
+    opt.classList.toggle('active', opt.dataset.lang === lang);
   });
 
-  setLang(localStorage.getItem('lang') || defaultLang);
+  // Marca botão ativo na grade mobile
+  document.querySelectorAll('.lang-grid__btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  translatePage(lang);
+  translatePlaceholders(lang);
+}
+
+// Dropdown desktop — abrir/fechar
+const langSelector    = document.getElementById('lang-selector');
+const langSelectorBtn = document.getElementById('lang-selector-btn');
+const langDropdown    = document.getElementById('lang-dropdown');
+
+if (langSelectorBtn) {
+  langSelectorBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    langSelector.classList.toggle('open');
+    langSelectorBtn.setAttribute('aria-expanded',
+      langSelector.classList.contains('open'));
+  });
+}
+
+// Clique nas opções do dropdown
+if (langDropdown) {
+  langDropdown.addEventListener('click', (e) => {
+    const option = e.target.closest('.lang-selector__option');
+    if (!option) return;
+    setLang(option.dataset.lang);
+    langSelector.classList.remove('open');
+    langSelectorBtn.setAttribute('aria-expanded', 'false');
+  });
+}
+
+// Fecha ao clicar fora
+document.addEventListener('click', (e) => {
+  if (langSelector && !langSelector.contains(e.target)) {
+    langSelector.classList.remove('open');
+    if (langSelectorBtn) langSelectorBtn.setAttribute('aria-expanded', 'false');
+  }
+});
+
+// Grade mobile — delegação de eventos
+document.addEventListener('click', e => {
+  if (e.target.classList.contains('lang-grid__btn')) {
+    setLang(e.target.dataset.lang);
+  }
+});
+
+// Fecha dropdown com ESC
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && langSelector) {
+    langSelector.classList.remove('open');
+    if (langSelectorBtn) langSelectorBtn.setAttribute('aria-expanded', 'false');
+  }
+});
+
+// Inicializa idioma
+setLang(localStorage.getItem('lang') || defaultLang);
 
   // ----------------------------------------------------------
   // C. HAMBÚRGUER / MENU MOBILE

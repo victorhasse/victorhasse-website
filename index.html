@@ -47,16 +47,25 @@
 
       <!-- Utilitários — desktop -->
       <div class="header-utilities">
-        <div class="lang-btns" role="group" aria-label="Idioma">
-          <button class="lang-btn" data-lang="pt">PT</button>
-          <button class="lang-btn" data-lang="en">EN</button>
-          <button class="lang-btn" data-lang="es">ES</button>
-          <button class="lang-btn" data-lang="de">DE</button>
-          <button class="lang-btn" data-lang="fr">FR</button>
-          <button class="lang-btn" data-lang="it">IT</button>
-          <button class="lang-btn" data-lang="ja">JA</button>
+        <div class="lang-selector" id="lang-selector">
+          <button class="lang-selector__btn" id="lang-selector-btn" aria-haspopup="listbox" aria-expanded="false">
+            <span class="lang-selector__flag" id="lang-selector-flag">🇧🇷</span>
+            <span class="lang-selector__code" id="lang-selector-code">PT</span>
+            <svg class="lang-selector__arrow" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 4l4 4 4-4"/>
+            </svg>
+            </button>
+            <ul class="lang-selector__dropdown" id="lang-dropdown" role="listbox">
+              <li class="lang-selector__option" data-lang="pt" role="option">🇧🇷 <span>Português</span></li>
+              <li class="lang-selector__option" data-lang="en" role="option">🇺🇸 <span>English</span></li>
+              <li class="lang-selector__option" data-lang="es" role="option">🇪🇸 <span>Español</span></li>
+              <li class="lang-selector__option" data-lang="de" role="option">🇩🇪 <span>Deutsch</span></li>
+              <li class="lang-selector__option" data-lang="fr" role="option">🇫🇷 <span>Français</span></li>
+              <li class="lang-selector__option" data-lang="it" role="option">🇮🇹 <span>Italiano</span></li>
+              <li class="lang-selector__option" data-lang="ja" role="option">🇯🇵 <span>日本語</span></li>
+            </ul>
         </div>
-        <button class="theme-btn" id="toggle-theme" aria-label="Alternar tema">
+        <button class="theme-btn" aria-label="Alternar tema" id="toggle-theme">
           <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="4"/>
             <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
@@ -89,14 +98,14 @@
       </ul>
     </nav>
     <div class="mobile-utilities">
-      <div class="lang-btns" role="group" aria-label="Idioma">
-        <button class="lang-btn" data-lang="pt">PT</button>
-        <button class="lang-btn" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="es">ES</button>
-        <button class="lang-btn" data-lang="de">DE</button>
-        <button class="lang-btn" data-lang="fr">FR</button>
-        <button class="lang-btn" data-lang="it">IT</button>
-        <button class="lang-btn" data-lang="ja">JA</button>
+      <div class="lang-grid">
+        <button class="lang-grid__btn active" data-lang="pt">PT</button>
+        <button class="lang-grid__btn" data-lang="en">EN</button>
+        <button class="lang-grid__btn" data-lang="es">ES</button>
+        <button class="lang-grid__btn" data-lang="de">DE</button>
+        <button class="lang-grid__btn" data-lang="fr">FR</button>
+        <button class="lang-grid__btn" data-lang="it">IT</button>
+        <button class="lang-grid__btn" data-lang="ja">JA</button>
       </div>
       <button class="theme-btn" aria-label="Alternar tema" id="toggle-theme-mobile" style="align-self:flex-start">
         <svg id="icon-sun-m" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -123,7 +132,7 @@
   </div>
 
   <section id="home" class="hero-section">
- 
+    <div class="hero-inner">
     <!-- Lado esquerdo: texto -->
     <div class="hero-left">
  
@@ -165,6 +174,7 @@
       <span class="hero-scroll__line"></span>
       <span class="hero-scroll__label" data-i18n="scroll_down">Rolar para Baixo</span>
     </a>
+  </div>
   </section>
 
  <!-- =====================================================
@@ -598,9 +608,6 @@
         </a>
         <p class="footer-copy" data-i18n="footer_copyright">
           © <span id="year"></span> Victor Hasse — All rights reserved.
-        </p>
-        <p class="footer-made" data-i18n="footer_made">
-          Designed & developed by Victor Hasse.
         </p>
       </div>
 

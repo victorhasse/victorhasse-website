@@ -161,46 +161,143 @@ header {
 }
 
 /* Botões de idioma */
-.lang-btns {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 3px;
-  background: var(--bg2);
+.lang-selector {
+  position: relative;
 }
 
-.lang-btn {
+.lang-selector__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  height: 34px;
+  padding: 0 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--ink);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.lang-selector__btn:hover {
+  background: var(--bg);
+  border-color: var(--ink3);
+}
+
+.lang-selector__flag {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.lang-selector__arrow {
+  width: 10px;
+  height: 10px;
+  color: var(--ink3);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+
+.lang-selector.open .lang-selector__arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.lang-selector__dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  list-style: none;
+  padding: 0.35rem;
+  margin: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  min-width: 160px;
+  z-index: 500;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+}
+
+.dark-mode .lang-selector__dropdown {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.lang-selector.open .lang-selector__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.lang-selector__option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--ink2);
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+
+.lang-selector__option:hover {
+  background: var(--bg2);
+  color: var(--ink);
+}
+
+.lang-selector__option.active {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+   Seletor de idioma — grade mobile
+   --------------------------------------------------------- */
+.lang-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.lang-grid__btn {
   font-family: 'DM Sans', system-ui, sans-serif;
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.28rem 0.55rem;
-  border-radius: 5px;
-  border: none;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
   background: transparent;
   color: var(--ink3);
   cursor: pointer;
-  transition: background 0.15s, color 0.15s;
-  line-height: 1;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
-.lang-btn:hover {
+.lang-grid__btn:hover {
   color: var(--ink);
+  border-color: var(--ink3);
 }
 
-.lang-btn.active {
-  background: var(--bg);
-  color: var(--ink);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+.lang-grid__btn.active {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
 }
 
 /* Botão tema */
 .theme-btn {
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 8px;
   border: 1px solid var(--border);
   background: transparent;
@@ -287,6 +384,40 @@ header {
 
 body.menu-open {
   overflow: hidden;
+}
+
+/* ---------------------------------------------------------
+   Scroll-driven: header encolhe ao rolar
+   Suportado em Chrome 115+, Edge 115+, Firefox 110+
+   --------------------------------------------------------- */
+@supports (animation-timeline: scroll()) {
+  @keyframes header-shrink {
+    from {
+      height: 72px;
+      box-shadow: none;
+    }
+    to {
+      height: 52px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  header {
+    animation: header-shrink linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 120px;
+  }
+
+  @keyframes logo-shrink {
+    from { height: 36px; }
+    to   { height: 28px; }
+  }
+
+  .logo img {
+    animation: logo-shrink linear both;
+    animation-timeline: scroll();
+    animation-range: 0px 120px;
+  }
 }
 
 /* =========================================================
@@ -430,36 +561,55 @@ section.visible {
    ========================================================= */
 
 .hero-section {
-  /* Ocupa a tela cheia descontando o header */
-  min-height: calc(100vh - 64px);
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;        /* reseta o max-width: 900px herdado */
+  margin-left: calc(-50vw + 50%);
+  margin-right: 0;
+  padding: 0;              /* reseta o padding: 6rem 2rem herdado */
+  min-height: 100vh;
+  opacity: 1 !important;
+  transform: none !important;
+}
+ 
+.hero-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: radial-gradient(circle, var(--border) 2px, transparent 2px);
+  background-size: 28px 28px;
+  opacity: 0.4;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+ 
+/* Container interno — cuida do layout e centralização */
+.hero-inner {
+  position: relative;
+  z-index: 1;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 2rem;
-
+  padding: 0 5rem;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 3rem;
-
-  position: relative;
-
-  /* Remove a animação de entrada padrão das seções —
-     o hero já está visível ao carregar */
-  opacity: 1 !important;
-  transform: none !important;
 }
-
+ 
 /* ---------------------------------------------------------
    Lado esquerdo — texto
    --------------------------------------------------------- */
 .hero-left {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
-
-/* Eyebrow — tag pequena acima do título */
+ 
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
@@ -470,7 +620,7 @@ section.visible {
   text-transform: uppercase;
   color: var(--ink3);
 }
-
+ 
 .hero-eyebrow::before {
   content: '';
   display: inline-block;
@@ -480,8 +630,7 @@ section.visible {
   background: var(--accent);
   flex-shrink: 0;
 }
-
-/* Título principal */
+ 
 .hero-title {
   display: flex;
   flex-direction: column;
@@ -492,19 +641,17 @@ section.visible {
   color: var(--ink);
   margin: 0;
 }
-
+ 
 .hero-line {
   display: block;
 }
-
-/* A linha do meio fica em itálico e na cor de destaque */
+ 
 .hero-line--italic {
   font-style: italic;
   font-weight: 300;
   color: var(--accent);
 }
-
-/* Descrição */
+ 
 .hero-desc {
   font-size: 1rem;
   line-height: 1.75;
@@ -512,15 +659,14 @@ section.visible {
   max-width: 420px;
   margin: 0;
 }
-
-/* Botões de ação */
+ 
 .hero-actions {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
   margin-top: 0.25rem;
 }
-
+ 
 .hero-btn {
   display: inline-flex;
   align-items: center;
@@ -534,13 +680,13 @@ section.visible {
   text-decoration: none;
   transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
 }
-
+ 
 .hero-btn--primary {
   background: var(--ink);
   color: var(--bg);
   border: 1.5px solid var(--ink);
 }
-
+ 
 .hero-btn--primary:hover {
   background: var(--accent);
   border-color: var(--accent);
@@ -548,29 +694,31 @@ section.visible {
   transform: translateY(-2px);
   opacity: 1;
 }
-
+ 
 .hero-btn--ghost {
   background: transparent;
   color: var(--ink);
   border: 1.5px solid var(--border);
 }
-
+ 
 .hero-btn--ghost:hover {
   border-color: var(--ink);
   color: var(--ink);
   transform: translateY(-2px);
   opacity: 1;
 }
-
+ 
 /* ---------------------------------------------------------
-   Lado direito — frame da ilustração
+   Lado direito — foto
    --------------------------------------------------------- */
 .hero-right {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  z-index: 1;
 }
-
+ 
 .hero-img-wrapper {
   position: relative;
   width: min(380px, 100%);
@@ -578,11 +726,11 @@ section.visible {
   border-radius: 20px;
   background: linear-gradient(135deg, var(--bg2) 0%, var(--border) 100%);
 }
-
+ 
 .hero-img-decoration {
   display: none;
 }
-
+ 
 .hero-img-frame {
   position: relative;
   z-index: 1;
@@ -592,7 +740,7 @@ section.visible {
   overflow: hidden;
   background: var(--bg2);
 }
-
+ 
 .hero-img {
   width: 100%;
   height: 100%;
@@ -601,18 +749,19 @@ section.visible {
   display: block;
   transition: transform 0.4s ease;
 }
-
+ 
 .hero-img-frame:hover .hero-img {
   transform: scale(1.03);
 }
-
+ 
 /* ---------------------------------------------------------
-   Scroll hint — canto inferior direito
+   Scroll hint
    --------------------------------------------------------- */
 .hero-scroll {
   position: absolute;
-  bottom: 2rem;
-  right: 0;
+  z-index: 1;
+  bottom: 20rem;
+  right: 0rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -621,12 +770,12 @@ section.visible {
   color: var(--ink3);
   transition: color 0.2s;
 }
-
+ 
 .hero-scroll:hover {
   color: var(--ink);
   opacity: 1;
 }
-
+ 
 .hero-scroll__line {
   width: 1px;
   height: 40px;
@@ -634,22 +783,22 @@ section.visible {
   display: block;
   animation: scrollline 2s ease-in-out infinite;
 }
-
+ 
 @keyframes scrollline {
   0%, 100% { height: 40px; opacity: 0.5; }
   50%       { height: 20px; opacity: 1;   }
 }
-
+ 
 .hero-scroll__label {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   writing-mode: vertical-rl;
 }
-
+ 
 /* ---------------------------------------------------------
-   Marquee de skills — logo abaixo do hero
+   Marquee de skills
    --------------------------------------------------------- */
 .skills-marquee {
   width: 100vw;
@@ -664,12 +813,12 @@ section.visible {
   padding: 0.75rem 0;
   transition: background 0.25s;
 }
-
+ 
 .skills-marquee__track {
   display: inline-block;
   animation: marquee 28s linear infinite;
 }
-
+ 
 .skills-marquee__item {
   display: inline-block;
   font-size: 0.65rem;
@@ -679,7 +828,7 @@ section.visible {
   color: rgba(255, 255, 255, 0.45);
   margin: 0 1.25rem;
 }
-
+ 
 .skills-marquee__dot {
   display: inline-block;
   color: var(--accent);
@@ -687,80 +836,71 @@ section.visible {
   font-size: 0.5rem;
   vertical-align: middle;
 }
-
+ 
 @keyframes marquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
-
+ 
 /* ---------------------------------------------------------
    Responsividade
    --------------------------------------------------------- */
-
-/* Tablet: empilha mas ainda lado a lado em telas médias */
 @media (max-width: 768px) {
-  .hero-section {
+  .hero-inner {
     grid-template-columns: 1fr;
     text-align: center;
     padding-top: 3rem;
     padding-bottom: 5rem;
     gap: 2.5rem;
+    min-height: 100vh;
   }
-
-  .hero-right {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .hero-img-wrapper {
-    width: min(300px, 60vw);
-  }
-
+ 
   .hero-left {
     align-items: center;
     order: 2;
   }
-
+ 
   .hero-right {
     order: 1;
+    width: 100%;
+    justify-content: center;
   }
-
-  .hero-img-frame {
-    width: min(300px, 50vw);
+ 
+  .hero-img-wrapper {
+    width: min(260px, 70vw);
   }
-
+ 
   .hero-desc {
     max-width: 100%;
   }
-
+ 
   .hero-title {
     align-items: center;
   }
-
+ 
   .hero-scroll {
     bottom: 1rem;
     right: 50%;
     transform: translateX(50%);
     flex-direction: row;
   }
-
+ 
   .hero-scroll__line {
     width: 30px;
     height: 1px;
     animation: none;
   }
-
+ 
   .hero-scroll__label {
     writing-mode: horizontal-tb;
   }
 }
-
+ 
 @media (max-width: 480px) {
   .hero-title {
     font-size: clamp(2.5rem, 12vw, 3.5rem);
   }
-
+ 
   .hero-actions {
     justify-content: center;
   }
@@ -1965,8 +2105,8 @@ section.visible {
   margin: 0 auto;
   padding: 2.5rem 2rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 12rem;
   align-items: start;
 }
 
@@ -1995,7 +2135,7 @@ section.visible {
 }
 
 .footer-logo img {
-  height: 28px;
+  height: 36px;
   width: auto;
   filter: var(--logo-filter);
   transition: filter 0.25s, opacity 0.2s;

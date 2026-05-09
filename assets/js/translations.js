@@ -84,7 +84,6 @@ const translations = {
         "footer_cta_label": "Ready to start?",
         "footer_cta_title": "Let's create something <em>amazing</em> together.",
         "footer_cta_btn": "Get in touch",
-        "footer_made": "Designed & developed by Victor Hasse.",
         "footer_copyright": "© <span id=\"year\"></span> Designed & Developed by <b style=\"font-size: large;\">Victor Hasse</b> — All rights reserved.",
         "footer_contacts": "Contacts:",
         "navigation": "Navigation"
@@ -173,7 +172,6 @@ const translations = {
         "footer_cta_label": "Pronto para começar?",
         "footer_cta_title": "Vamos criar algo <em>incrível</em> juntos.",
         "footer_cta_btn": "Entrar em contato",
-        "footer_made": "Projetado & desenvolvido por Victor Hasse.",
         "footer_copyright": "© <span id=\"year\"></span> Projetado & Desenvolvido por <b style=\"font-size: large;\">Victor Hasse</b> — Todos os direitos reservados.",
         "footer_contacts": "Contatos:",
         "navigation": "Navegação"
@@ -262,7 +260,6 @@ const translations = {
         "footer_cta_label": "¿Listo para empezar?",
         "footer_cta_title": "Creemos algo <em>increíble</em> juntos.",
         "footer_cta_btn": "Contactar",
-        "footer_made": "Diseñado & desarrollado por Victor Hasse.",
         "footer_copyright": "© <span id=\"year\"></span> Diseñado y Desarrollado por <b style=\"font-size: large;\">Victor Hasse</b> — Todos los derechos reservados.",
         "footer_contacts": "Contactos:",
         "navigation": "Navegación"
@@ -351,7 +348,6 @@ const translations = {
         "footer_cta_label": "Bereit anzufangen?",
         "footer_cta_title": "Lass uns etwas <em>Großartiges</em> erschaffen.",
         "footer_cta_btn": "Kontakt aufnehmen",
-        "footer_made": "Entworfen & entwickelt von Victor Hasse.",
         "footer_copyright": "© <span id=\"year\"></span> Entworfen & Entwickelt von <b style=\"font-size: large;\">Victor Hasse</b> — Alle Rechte vorbehalten.",
         "footer_contacts": "Kontakte:",
         "navigation": "Navigation"
@@ -440,7 +436,6 @@ const translations = {
         "footer_cta_label": "Prêt à commencer ?",
         "footer_cta_title": "Créons quelque chose <em>d'incroyable</em> ensemble.",
         "footer_cta_btn": "Prendre contact",
-        "footer_made": "Conçu & développé par Victor Hasse.",
         "footer_copyright": "© <span id=\"year\"></span> Conçu & Développé par <b style=\"font-size: large;\">Victor Hasse</b> — Tous droits réservés.",
         "footer_contacts": "Contacts :",
         "navigation": "Navigation"
@@ -529,7 +524,6 @@ const translations = {
         "footer_cta_label": "Pronto per iniziare?",
         "footer_cta_title": "Creiamo qualcosa di <em>straordinario</em> insieme.",
         "footer_cta_btn": "Mettiti in contatto",
-        "footer_made": "Progettato & sviluppato da Victor Hasse.",
         "footer_copyright": "© <span id=\"year\"></span> Progettato & Sviluppato da <b style=\"font-size: large;\">Victor Hasse</b> — Tutti i diritti riservati.",
         "footer_contacts": "Contatti:",
         "navigation": "Navigazione"
@@ -618,7 +612,6 @@ const translations = {
         "footer_cta_label": "始める準備はできていますか？",
         "footer_cta_title": "一緒に<em>素晴らしい</em>ものを作りましょう。",
         "footer_cta_btn": "お問い合わせ",
-        "footer_made": "ビクター・ハッセがデザイン & 開発。",
         "footer_copyright": "© <span id=\"year\"></span> <b style=\"font-size: large;\">Victor Hasse</b> がデザイン & 開発 — 無断転載禁止。",
         "footer_contacts": "連絡先：",
         "navigation": "ナビゲーション"
